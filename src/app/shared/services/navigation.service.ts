@@ -50,14 +50,14 @@ export class NavigationService {
       type: 'link',
       tooltip: 'Inbox',
       icon: 'album',
-      state: 'inbox'
+      state: 'dashboard'
     },
     {
       name: 'Step2',
       type: 'dropDown',
       tooltip: 'Chat',
       icon: 'album',
-      state: 'chat',
+      state: 'dashboard',
       sub: [
         { name: 'CONFIRM', state: 'confirm' },
         { name: 'LOADER', state: 'loader' },
@@ -68,14 +68,14 @@ export class NavigationService {
       type: 'link',
       tooltip: 'Inbox',
       icon: 'album',
-      state: 'inbox'
+      state: 'dashboard'
     },
     {
       name: 'Step4',
       type: 'dropDown',
       tooltip: 'Chat',
       icon: 'album',
-      state: 'chat',
+      state: 'dashboard',
       sub: [
         { name: 'CONFIRM', 
           state: 'confirm',
@@ -93,14 +93,14 @@ export class NavigationService {
       type: 'link',
       tooltip: 'Inbox',
       icon: 'album',
-      state: 'inbox'
+      state: 'dashboard'
     },
     {
       name: 'Step6',
       type: 'link',
       tooltip: 'Chat',
       icon: 'album',
-      state: 'chat'
+      state: 'dashboard'
     },
   ]
 

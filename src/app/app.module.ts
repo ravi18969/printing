@@ -3,6 +3,8 @@ import { RouterModule } from '@angular/router';
 import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GestureConfig } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 import { rootRouterConfig } from './app.routing';
 import { SharedModule } from './shared/shared.module';
@@ -24,6 +26,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     BrowserAnimationsModule,
     SharedModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

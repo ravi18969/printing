@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { 
   MatListModule,
   MatIconModule,
@@ -16,7 +16,7 @@ import {
   MatTabsModule,
   MatInputModule,
   MatProgressBarModule,
-  MatStepperModule
+  MatStepperModule,
  } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
@@ -31,6 +31,7 @@ import { OthersRoutes } from "./others.routing";
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     MatListModule,
     MatIconModule,
     MatButtonModule,
