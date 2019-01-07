@@ -19,6 +19,7 @@ export class RoutePartsService {
   generateRouteParts(snapshot: ActivatedRouteSnapshot): IRoutePart[] {
     var routeParts = <IRoutePart[]>[];
     if (snapshot) {
+      console.log("Snapshot values:", snapshot);
       if (snapshot.firstChild) {
         routeParts = routeParts.concat(this.generateRouteParts(snapshot.firstChild));
       }

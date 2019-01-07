@@ -44,7 +44,7 @@ export class LayoutService {
       "navigationPos": "side",
       "sidebarStyle": "full",
       "dir": "ltr",
-      "useBreadcrumb": true,
+      "useBreadcrumb": false,
       "topbarFixed": false,
       "breadcrumb": "title"
     }
