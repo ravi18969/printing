@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl, Validators} from '@angular/forms';
+
 
 
 @Component({
@@ -12,5 +14,9 @@ export class AppBlankComponent implements OnInit {
 
   ngOnInit() {
   }
+  emailFormControl = new FormControl('', [
+    Validators.required,
+    Validators.email,
+  ]);
 
 }

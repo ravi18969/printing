@@ -29,6 +29,11 @@ export const rootRouterConfig: Routes = [
         path: 'dashboard', 
         loadChildren: './views/others/others.module#OthersModule', 
         // data: { title: 'Others', breadcrumb: 'OTHERS'}
+      },
+      {
+        path: 'create', 
+        loadChildren: './views/others/others.module#OthersModule', 
+        // data: { title: 'Others', breadcrumb: 'OTHERS'}
       }
     ]
   },

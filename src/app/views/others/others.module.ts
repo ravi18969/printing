@@ -26,6 +26,7 @@ import { SharedModule } from './../../shared/shared.module';
 
 import { AppBlankComponent } from './app-blank/app-blank.component';
 import { OthersRoutes } from "./others.routing";
+import { CreateRequirementComponent } from './create-requirement/create-requirement.component';
 
 @NgModule({
   imports: [
@@ -54,7 +55,8 @@ import { OthersRoutes } from "./others.routing";
     RouterModule.forChild(OthersRoutes)
   ],
   declarations: [
-    AppBlankComponent
+    AppBlankComponent,
+    CreateRequirementComponent
   ]
 })
 export class OthersModule { }

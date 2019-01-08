@@ -1,5 +1,5 @@
 <div style="padding:25px;">
-  <mat-horizontal-stepper>
+  <!-- <mat-horizontal-stepper>
     <mat-step label="Step 1" state="phone">
       <p>Put down your phones.</p>
       <div>
@@ -36,18 +36,18 @@
     </mat-step>
     <mat-step label="Step 6">
       <p>You're welcome.</p>
-    </mat-step>
+    </mat-step> -->
   
     <!-- Icon overrides. -->
-    <ng-template matStepperIcon="phone">
+    <!-- <ng-template matStepperIcon="phone">
       <mat-icon>call_end</mat-icon>
     </ng-template>
     <ng-template matStepperIcon="chat">
       <mat-icon>forum</mat-icon>
     </ng-template>
-  </mat-horizontal-stepper>
+  </mat-horizontal-stepper> -->
 
-  <mat-card class="example-card" style="width:340px; height: 220px;">
+  <!-- <mat-card class="example-card" style="width:340px; height: 220px;">
     <mat-card-title style="text-align:center;font-weight: bold;">Virtual Card</mat-card-title>
     <img mat-card-image src="assets/images/face-4.jpg" alt="Photo of a Shiba Inu" style="width:100px; height: 100px; border-radius: 50%;margin: 15px 50px 0px 0px;">
     <mat-card-content style="display:inline-block;">
@@ -57,7 +57,7 @@
     </mat-card-content>
     <p>Job Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 
-  </mat-card>
+  </mat-card> -->
 
   <!-- <mat-card class="p-0">
     <mat-card-title class="">
@@ -103,5 +103,117 @@
       </mat-horizontal-stepper>
     </mat-card-content>
   </mat-card> -->
+  <!-- <mat-card class="">Welcome back, "Admin</mat-card> -->
+  <mat-card class="progress_report">
+      <mat-card-title>Today</mat-card-title>
+      <mat-card-content>
+        <h1 style="color: #31B9F6;">25</h1>
+        <p>Due Task</p>
+      </mat-card-content>
+      <hr>
+      <mat-card-footer>Completed: 8</mat-card-footer>
+    </mat-card>
+  <mat-card class="progress_report">
+      <mat-card-title>Overdue</mat-card-title>
+      <mat-card-content>
+        <h1 style="color: #F44336;">5</h1>
+        <p>Tasks</p>
+      </mat-card-content>
+      <hr>
+      <mat-card-footer>Yesterday's over: 8</mat-card-footer>
+    </mat-card>
+    <mat-card class="progress_report">
+        <mat-card-title>Issues</mat-card-title>
+        <mat-card-content>
+          <h1 style="color: #FF9800;">6</h1>
+          <p>Open</p>
+        </mat-card-content>
+        <hr>
+        <mat-card-footer>Closed toady: 0</mat-card-footer>
+      </mat-card>
+      <mat-card class="progress_report">
+        <mat-card-title>Features</mat-card-title>
+        <mat-card-content>
+          <h1 style="color: #607D8B;">45</h1>
+          <p>Proposals</p>
+        </mat-card-content>
+        <hr>
+        <mat-card-footer>Implemented: 6</mat-card-footer>
+      </mat-card>
+      <br><br>
+      <mat-card style="height: 200px;">
+          <button mat-fab color="primary">Create <mat-icon>build</mat-icon></button>
+          <button mat-fab color="primary">Papers <mat-icon>line_weight</mat-icon></button>
+          <button mat-fab color="warn">Fabrication <mat-icon>format_paint</mat-icon></button>
+      </mat-card>
+      <br><br>
+      <mat-card class="show_progress_bar">
+          <mat-card-title>Show Progress</mat-card-title>
+          <mat-card-content>
+              <form class="example-form">
+                  <!-- <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Email" [formControl]="emailFormControl">
+                    <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                      Please enter a valid email address
+                    </mat-error>
+                    <mat-error *ngIf="emailFormControl.hasError('required')">
+                      Email is <strong>required</strong>
+                    </mat-error>
+                  </mat-form-field> -->
+                  <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Enter order no" value="">
+                    </mat-form-field>
+                </form>
+                
+                <mat-horizontal-stepper>
+                    <mat-step label="Fabrication" state="phone">
+                      <p>Put down your phones.</p>
+                      <div>
+                        <button mat-button matStepperNext>Next</button>
+                      </div>
+                    </mat-step>
+                    <mat-step label="Step 2" state="phone">
+                      <p>Put down your phones.</p>
+                      <div>
+                          <button mat-button matStepperPrevious>Back</button>
+                          <button mat-button matStepperNext>Next</button>
+                      </div>
+                    </mat-step>
+                    <mat-step label="Step 3" state="phone">
+                      <p>Put down your phones.</p>
+                      <div>
+                          <button mat-button matStepperPrevious>Back</button>
+                          <button mat-button matStepperNext>Next</button>
+                      </div>
+                    </mat-step>
+                    <mat-step label="Step 4" state="phone">
+                      <p>Put down your phones.</p>
+                      <div>
+                        <button mat-button matStepperPrevious>Back</button>
+                        <button mat-button matStepperNext>Next</button>
+                      </div>
+                    </mat-step>
+                    <mat-step label="Step 5" state="chat">
+                      <p>About to complete.</p>
+                      <div>
+                        <button mat-button matStepperPrevious>Back</button>
+                        <button mat-button matStepperNext>Next</button>
+                      </div>
+                    </mat-step>
+                    <mat-step label="Step 6">
+                      <p>You're welcome.</p>
+                    </mat-step> -->
+                  
+                    <!-- Icon overrides. -->
+                    <ng-template matStepperIcon="phone">
+                      <mat-icon>call_end</mat-icon>
+                    </ng-template>
+                    <ng-template matStepperIcon="chat">
+                      <mat-icon>forum</mat-icon>
+                    </ng-template>
+                  </mat-horizontal-stepper>
+          </mat-card-content>
+          <!-- <mat-card-footer>Implemented: 6</mat-card-footer> -->
+        </mat-card>
 </div> 
 

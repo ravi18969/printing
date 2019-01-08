@@ -1,0 +1,38 @@
+.progress_report {
+    display: inline-block;
+    padding: 0px !important;
+    margin-left: 45px;
+    margin-top: 30px;
+    width: 20%;
+    height: 230px;
+    text-align: center;
+    font-weight: bold;
+    color: rgb(128, 119, 119);
+}
+
+.mat-card-title {
+    padding: 9px;
+    font-size: 2em !important;
+    color: black;
+}
+
+hr {
+    border: 2px solid rgba(221, 214, 214, 0.904);
+}
+
+.mat-card-content {
+    margin-bottom: 30px;
+}
+
+.mat-card-footer {
+    font-size: 1em;
+}
+
+button {
+    width: 120px !important;
+    height: 120px !important;
+    display: inline-block;
+    margin-left: 17%;
+    margin-top: 4%;
+    
+}
