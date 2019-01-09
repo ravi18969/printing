@@ -45,61 +45,61 @@ export class NavigationService {
     //   icon: 'library_books',
     //   state: 'http://egret-doc.mhrafi.com/'
     // },
+    // {
+    //   name: 'Create',
+    //   type: 'link',
+    //   tooltip: 'Inbox',
+    //   icon: 'album',
+    //   state: 'dashboard'
+    // },
     {
-      name: 'Step1',
-      type: 'link',
-      tooltip: 'Inbox',
-      icon: 'album',
-      state: 'dashboard'
-    },
-    {
-      name: 'Step2',
+      name: 'New Requirement',
       type: 'dropDown',
       tooltip: 'Chat',
-      icon: 'album',
+      icon: 'build',
       state: 'dashboard',
       sub: [
-        { name: 'CONFIRM', state: 'confirm' },
-        { name: 'LOADER', state: 'loader' },
+        { name: 'Create', icon: 'settings', state: 'create/requirement' },
+        { name: 'Papers', icon: 'line_weight', state: 'dashboard' },
       ]
     },
     {
-      name: 'Step3',
+      name: 'Fabrication',
       type: 'link',
       tooltip: 'Inbox',
-      icon: 'album',
+      icon: 'format_paint',
+      state: 'dashboard'
+    },
+    // {
+    //   name: 'Step4',
+    //   type: 'dropDown',
+    //   tooltip: 'Chat',
+    //   icon: 'album',
+    //   state: 'dashboard',
+    //   sub: [
+    //     { name: 'CONFIRM', 
+    //       state: 'confirm',
+    //       type: 'dropDown',
+    //       sub: [
+    //         { name: 'New', state: 'confirm' },
+    //         { name: 'Comming Soon', state: 'loader' },
+    //       ]  
+    //     },
+    //     { name: 'LOADER', state: 'loader' },
+    //   ]
+    // },
+    {
+      name: 'Inventory',
+      type: 'link',
+      tooltip: 'Inbox',
+      icon: 'store',
       state: 'dashboard'
     },
     {
-      name: 'Step4',
-      type: 'dropDown',
-      tooltip: 'Chat',
-      icon: 'album',
-      state: 'dashboard',
-      sub: [
-        { name: 'CONFIRM', 
-          state: 'confirm',
-          type: 'dropDown',
-          sub: [
-            { name: 'New', state: 'confirm' },
-            { name: 'Comming Soon', state: 'loader' },
-          ]  
-        },
-        { name: 'LOADER', state: 'loader' },
-      ]
-    },
-    {
-      name: 'Step5',
-      type: 'link',
-      tooltip: 'Inbox',
-      icon: 'album',
-      state: 'dashboard'
-    },
-    {
-      name: 'Step6',
+      name: 'List items',
       type: 'link',
       tooltip: 'Chat',
-      icon: 'album',
+      icon: 'layers',
       state: 'dashboard'
     },
   ]

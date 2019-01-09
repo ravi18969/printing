@@ -17,6 +17,8 @@ import {
   MatInputModule,
   MatProgressBarModule,
   MatStepperModule,
+  MatFormFieldModule,
+  MatSelectModule,
  } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
@@ -33,6 +35,7 @@ import { CreateRequirementComponent } from './create-requirement/create-requirem
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    MatFormFieldModule,
     MatListModule,
     MatIconModule,
     MatButtonModule,
@@ -52,6 +55,7 @@ import { CreateRequirementComponent } from './create-requirement/create-requirem
     FileUploadModule,
     SharedModule,
     MatStepperModule,
+    MatSelectModule,
     RouterModule.forChild(OthersRoutes)
   ],
   declarations: [
