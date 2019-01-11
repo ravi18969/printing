@@ -19,6 +19,7 @@ import {
   MatStepperModule,
   MatFormFieldModule,
   MatSelectModule,
+  MatDatepickerModule,
  } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
@@ -56,6 +57,7 @@ import { CreateRequirementComponent } from './create-requirement/create-requirem
     SharedModule,
     MatStepperModule,
     MatSelectModule,
+    MatDatepickerModule,
     RouterModule.forChild(OthersRoutes)
   ],
   declarations: [
