@@ -1,8 +1,6 @@
 
     <mat-card *ngIf="formStatus; else elseBlock">
       
-
-      
       <form novalidate (ngSubmit)="onSubmit(myForm)" [formGroup]="myForm">
         <div fxLayout
         fxLayout.xs="column"
@@ -92,7 +90,7 @@
         fxLayoutAlign="center"
         fxLayoutGap="5%"
         fxLayoutGap.xs="0">
-            <mat-form-field fxFlex="50%">
+            <!-- <mat-form-field fxFlex="50%">
                 <mat-label>Quality</mat-label>
                 <mat-select formControlName="quality" placeholder="Select quality" >
                 <mat-option *ngFor="let paperType of paperTypes" [value]="paperType">{{paperType}}</mat-option>
@@ -102,7 +100,7 @@
                     Please select quality type.
                 </mat-error>
             </mat-error>
-            </mat-form-field>
+            </mat-form-field> -->
             <mat-form-field fxFlex="50%">
                 <mat-label>Print Type</mat-label>
                 <mat-select formControlName="printMode" placeholder="Print Mode" >
@@ -114,13 +112,6 @@
                 </mat-error>
             </mat-error>
             </mat-form-field>
-        </div>
-        
-        <div fxLayout
-        fxLayout.xs="column"
-        fxLayoutAlign="center"
-        fxLayoutGap="5%"
-        fxLayoutGap.xs="0">
             
             <mat-form-field fxFlex="50%">
                 <mat-label>Expected Delivery</mat-label>
@@ -130,9 +121,19 @@
                 </mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
-            <mat-form-field fxFlex="50%">
-                <mat-label>Others</mat-label>
-                <input matInput type="text" formControlName="extras" placeholder="Others">
+
+        </div>
+        
+        <div fxLayout
+        fxLayout.xs="column"
+        fxLayoutAlign="center"
+        fxLayoutGap="5%"
+        fxLayoutGap.xs="0">
+            
+            
+            <mat-form-field fxFlex="100%">
+                <mat-label>Description</mat-label>
+                <textarea matInput type="text" formControlName="extras" placeholder="Description" rows="5"></textarea>
             <!-- <mat-error *ngIf="myForm.controls.paperType.invalid && (myForm.controls.paperType.dirty || myForm.controls.paperType.touched)">
                 <mat-error *ngIf="myForm.controls.paperType.errors.required">
                     Please select paper type.

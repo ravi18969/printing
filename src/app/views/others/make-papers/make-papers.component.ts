@@ -10,7 +10,7 @@ import { PrintingService } from '../../../printing.service';
 export class MakePapersComponent implements OnInit {
   myForm: FormGroup;
   selectedProduct;
-  paperTypes = ["Maplitho", "Hard Paper", "Art Card", "Special paper"];
+  paperTypes = ["Maplitho", "Hard Paper", "Art Card", "Albaster","Special paper"];
   paperSizes = ["22x28", "23x36", "24x34", "25x36", "28x40", "30x40", "36x46"];
   gsms = [60, 70, 80, 90, 100, 170, 210, 240, 250, 300, 350, 400, 450];
   printModes = ["Type A Machine", "Type B Machine"];

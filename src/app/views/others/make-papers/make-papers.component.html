@@ -8,9 +8,8 @@
           fxLayoutAlign="center"
           fxLayoutGap="5%"
           fxLayoutGap.xs="0">
-            <mat-form-field fxFlex="50%">
+            <!-- <mat-form-field fxFlex="50%">
                 <mat-label>Job Id</mat-label>
-                <!-- <input matInput type="text" formControlName="jobId"  [value]="UniqueId" readonly> -->
                 <mat-select formControlName="jobId" placeholder="Job Id" (selectionChange)="findProduct($event)">
                   <mat-option *ngFor="let UniqueId of UniqueIds" [value]="UniqueId">{{UniqueId}}</mat-option>
                 </mat-select>   
@@ -18,17 +17,7 @@
             <mat-form-field fxFlex="50%">
                 <mat-label>Vendor Name</mat-label>
                 <input matInput id="vendor" type="text" formControlName="vendor" value="Raymond" readonly>   
-                <!-- <mat-error *ngIf="myForm.controls.vendor.invalid && (myForm.controls.vendor.dirty || myForm.controls.vendor.touched)"
-                        >
-                    <mat-error *ngIf="myForm.controls.vendor.errors.required">
-                        Vendor is required.
-                    </mat-error>
-                    <mat-error  *ngIf="myForm.controls.vendor.errors.minlength">
-                            Vendor must be at least 4 characters long.
-                    </mat-error>
-        
-                </mat-error> -->
-            </mat-form-field>
+            </mat-form-field> -->
           </div>
 
           <div fxLayout
@@ -57,7 +46,7 @@
           fxLayoutAlign="center"
           fxLayoutGap="5%"
           fxLayoutGap.xs="0">
-            <mat-form-field fxFlex="50%">
+            <!-- <mat-form-field fxFlex="50%">
               <mat-label>Paper Size</mat-label>
               <mat-select formControlName="paperSize" placeholder="Paper Size">
                 <mat-option *ngFor="let paperSize of paperSizes" [value]="paperSize">{{paperSize}}</mat-option>
@@ -78,7 +67,7 @@
                     Please select GSM type.
                   </mat-error>
               </mat-error>
-            </mat-form-field>
+            </mat-form-field> -->
           </div>
 
           <div fxLayout
@@ -105,7 +94,7 @@
           fxLayoutAlign="center"
           fxLayoutGap="5%"
           fxLayoutGap.xs="0">
-            <mat-form-field fxFlex="30%">
+            <mat-form-field fxFlex="50%">
               <mat-label>Plates</mat-label>
               <mat-select formControlName="plateType" placeholder="Select Plate type" (selectionChange)="paltetypes($event)">
                   <mat-option value="thermal">Thermal</mat-option>
@@ -117,7 +106,7 @@
                   </mat-error>
               </mat-error>
             </mat-form-field>
-            <mat-form-field fxFlex="30%">
+            <!-- <mat-form-field fxFlex="30%">
               <mat-label>Quality</mat-label>
               <mat-select formControlName="quality" placeholder="Select quality" >
                 <mat-option *ngFor="let paperType of paperTypes" [value]="paperType">{{paperType}}</mat-option>
@@ -127,8 +116,8 @@
                     Please select quality type.
                 </mat-error>
               </mat-error>
-            </mat-form-field>
-            <mat-form-field fxFlex="30%">
+            </mat-form-field> -->
+            <mat-form-field fxFlex="50%">
                 <mat-label>Print Type</mat-label>
                 <mat-select formControlName="printMode" placeholder="Print Mode" >
                   <mat-option *ngFor="let printMode of printModes" [value]="printMode">{{printMode}}</mat-option>

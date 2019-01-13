@@ -16,7 +16,7 @@ import { Route } from '@angular/compiler/src/core';
 export class CreateRequirementComponent implements OnInit {
 
   myForm: FormGroup;
-  paperTypes = ["Thermal", "Old One", "New paper", "Silica"];
+  paperTypes = ["Paper Type1", "Paper Type2", "Paper Type3", "Paper Type4"];
   paperSizes = ["22x28", "23x36", "24x34", "25x36", "28x40", "30x40", "36x46"];
   gsms = [60, 70, 80, 90, 100, 170, 210, 240, 250, 300, 350, 400, 450];
   printModes = ["Type A Machine", "Type B Machine"];
@@ -33,7 +33,7 @@ export class CreateRequirementComponent implements OnInit {
       printMode: ['', Validators.required],
       gsm: ['', Validators.required],
       plates: ['', Validators.required],
-      quality: ['', Validators.required],
+      // quality: ['', Validators.required],
       expectedDeliveryDate:['', Validators.required],
       vendor: ['', [Validators.required, Validators.minLength(4)]],
       paperType: ['', [Validators.required]],
