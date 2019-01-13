@@ -4,6 +4,27 @@ import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GestureConfig } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PrintingService } from "./printing.service";
+import { 
+  MatListModule,
+  MatIconModule,
+  MatButtonModule,
+  MatCardModule,
+  MatMenuModule,
+  MatSlideToggleModule,
+  MatGridListModule,
+  MatChipsModule,
+  MatCheckboxModule,
+  MatRadioModule,
+  MatTabsModule,
+  MatInputModule,
+  MatProgressBarModule,
+  MatStepperModule,
+  MatFormFieldModule,
+  MatSelectModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+ } from '@angular/material';
 
 
 import { rootRouterConfig } from './app.routing';
@@ -14,6 +35,7 @@ import { AppComponent } from './app.component';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { DialogboxComponent } from './views/others/dialogbox/dialogbox.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -22,6 +44,24 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 
 @NgModule({
   imports: [
+    MatListModule,
+  MatIconModule,
+  MatButtonModule,
+  MatCardModule,
+  MatMenuModule,
+  MatSlideToggleModule,
+  MatGridListModule,
+  MatChipsModule,
+  MatCheckboxModule,
+  MatRadioModule,
+  MatTabsModule,
+  MatInputModule,
+  MatProgressBarModule,
+  MatStepperModule,
+  MatFormFieldModule,
+  MatSelectModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
     BrowserModule,
     BrowserAnimationsModule,
     SharedModule,
@@ -37,11 +77,13 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     }),
     RouterModule.forRoot(rootRouterConfig, { useHash: false })
   ],
-  declarations: [AppComponent],
+  declarations: [AppComponent, DialogboxComponent],
   providers: [
     // ANGULAR MATERIAL SLIDER FIX
-    { provide: HAMMER_GESTURE_CONFIG, useClass: GestureConfig }
+    { provide: HAMMER_GESTURE_CONFIG, useClass: GestureConfig },
+    PrintingService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[DialogboxComponent]
 })
 export class AppModule { }

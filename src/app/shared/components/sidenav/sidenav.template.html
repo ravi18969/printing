@@ -21,12 +21,25 @@
         <span class="text-muted">{{item.name | translate}}</span>
       </div>
       <div *ngIf="!item.disabled && item.type !== 'separator' && item.type !== 'icon'" class="lvl1">
-        <a routerLink="/{{item.state}}" appDropdownToggle matRipple *ngIf="item.type === 'link'">
+        
+        <a routerLink="" (click)="openDialog()" appDropdownToggle matRipple *ngIf="item.type === 'link' && item.name == 'Edit Job'; else elseBlock">
           <mat-icon>{{item.icon}}</mat-icon>
           <span class="item-name lvl1">{{item.name | translate}}</span>
           <span fxFlex></span>
           <span class="menuitem-badge mat-bg-{{ badge.color }}" [ngStyle]="{background: badge.color}" *ngFor="let badge of item.badges">{{ badge.value }}</span>
         </a>
+        <ng-template #elseBlock>
+          <a routerLink="/{{item.state}}" appDropdownToggle matRipple *ngIf="item.type === 'link'">
+            <mat-icon>{{item.icon}}</mat-icon>
+            <span class="item-name lvl1">{{item.name | translate}}</span>
+            <span fxFlex></span>
+            <span class="menuitem-badge mat-bg-{{ badge.color }}" [ngStyle]="{background: badge.color}" *ngFor="let badge of item.badges">{{ badge.value }}</span>
+          </a>
+        </ng-template>
+        
+        <!-- <span class="item-name lvl1" *ngIf="item.name == 'Edit Job'">
+          <button (click)="openDialog()">Open</button>
+        </span> -->
         <a [href]="item.state" appDropdownToggle matRipple *ngIf="item.type === 'extLink'" target="_blank">
           <mat-icon>{{item.icon}}</mat-icon>
           <span class="item-name lvl1">{{item.name | translate}}</span>

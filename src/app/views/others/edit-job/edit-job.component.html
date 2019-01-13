@@ -15,7 +15,7 @@
         </mat-form-field>
         <mat-form-field fxFlex="50%">
             <mat-label>Vendor Name</mat-label>
-            <input matInput id="vendor" type="text" formControlName="vendor" placeholder="Enter vendor name" [errorStateMatcher]="matcher">   
+            <input matInput id="vendor" type="text" formControlName="vendor" value="Nike" placeholder="Enter vendor name" [errorStateMatcher]="matcher">   
             <mat-error *ngIf="myForm.controls.vendor.invalid && (myForm.controls.vendor.dirty || myForm.controls.vendor.touched)"
                     >
                 <mat-error *ngIf="myForm.controls.vendor.errors.required">
@@ -36,7 +36,7 @@
         fxLayoutGap.xs="0">
             <mat-form-field fxFlex="50%">
                 <mat-label>Paper Type</mat-label>
-                <mat-select formControlName="paperType" placeholder="Paper Type">
+                <mat-select formControlName="paperType" value="Sillica" placeholder="Paper Type">
                 <mat-option *ngFor="let paperType of paperTypes" [value]="paperType">{{paperType}}</mat-option>
             </mat-select>
             <mat-error *ngIf="myForm.controls.paperType.invalid && (myForm.controls.paperType.dirty || myForm.controls.paperType.touched)">
@@ -47,7 +47,7 @@
             </mat-form-field>
             <mat-form-field fxFlex="50%">
                 <mat-label>Plates</mat-label>
-                <input matInput type="number" formControlName="plates" placeholder="Enter number of plates">
+                <input matInput type="number" value="283" formControlName="plates" placeholder="Enter number of plates">
             <mat-error *ngIf="myForm.controls.plates.invalid && (myForm.controls.plates.dirty || myForm.controls.plates.touched)">
                 <mat-error *ngIf="myForm.controls.plates.errors.required">
                     Please enter no of papers required
@@ -65,7 +65,7 @@
                 
             <mat-form-field fxFlex="50%">
                 <mat-label>Paper Size</mat-label>
-                <mat-select formControlName="paperSize" placeholder="Paper Size">
+                <mat-select formControlName="paperSize" value="23*36" placeholder="Paper Size">
                 <mat-option *ngFor="let paperSize of paperSizes" [value]="paperSize">{{paperSize}}</mat-option>
                 </mat-select>
                 <mat-error *ngIf="myForm.controls.paperType.invalid && (myForm.controls.paperType.dirty || myForm.controls.paperType.touched)">
@@ -76,7 +76,7 @@
             </mat-form-field>
             <mat-form-field fxFlex="50%">
                 <mat-label>GSM</mat-label>
-                <mat-select formControlName="gsm" placeholder="Paper GSM">
+                <mat-select formControlName="gsm" value="100" placeholder="Paper GSM">
                 <mat-option *ngFor="let gsm of gsms" [value]="gsm">{{gsm}}</mat-option>
             </mat-select>
             <mat-error *ngIf="myForm.controls.paperType.invalid && (myForm.controls.paperType.dirty || myForm.controls.paperType.touched)">
@@ -94,7 +94,7 @@
         fxLayoutGap.xs="0">
             <mat-form-field fxFlex="50%">
                 <mat-label>Quality</mat-label>
-                <mat-select formControlName="quality" placeholder="Select quality" >
+                <mat-select formControlName="quality" value="Sillica" placeholder="Select quality" >
                 <mat-option *ngFor="let paperType of paperTypes" [value]="paperType">{{paperType}}</mat-option>
             </mat-select>
             <mat-error *ngIf="myForm.controls.quality.invalid && (myForm.controls.quality.dirty || myForm.controls.quality.touched)">
@@ -105,7 +105,7 @@
             </mat-form-field>
             <mat-form-field fxFlex="50%">
                 <mat-label>Print Type</mat-label>
-                <mat-select formControlName="printMode" placeholder="Print Mode" >
+                <mat-select formControlName="printMode" value="Type A Machine" placeholder="Print Mode" >
                 <mat-option *ngFor="let printMode of printModes" [value]="printMode">{{printMode}}</mat-option>
             </mat-select>
             <mat-error *ngIf="myForm.controls.printMode.invalid && (myForm.controls.printMode.dirty || myForm.controls.printMode.touched)">
@@ -124,7 +124,7 @@
             
             <mat-form-field fxFlex="50%">
                 <mat-label>Expected Delivery</mat-label>
-                <input matInput [matDatepicker]="picker" formControlName="expectedDeliveryDate" placeholder="Choose a date" readonly>
+                <input matInput [matDatepicker]="picker" value="01/22/2019" formControlName="expectedDeliveryDate" placeholder="Choose a date" readonly>
                 <mat-datepicker-toggle matSuffix [for]="picker">
                   <mat-icon matDatepickerToggleIcon>date_range</mat-icon>
                 </mat-datepicker-toggle>
@@ -132,7 +132,7 @@
             </mat-form-field>
             <mat-form-field fxFlex="50%">
                 <mat-label>Others</mat-label>
-                <input matInput type="text" formControlName="extras" placeholder="Others">
+                <input matInput type="text" formControlName="extras" value="Nothing" placeholder="Others">
             <!-- <mat-error *ngIf="myForm.controls.paperType.invalid && (myForm.controls.paperType.dirty || myForm.controls.paperType.touched)">
                 <mat-error *ngIf="myForm.controls.paperType.errors.required">
                     Please select paper type.

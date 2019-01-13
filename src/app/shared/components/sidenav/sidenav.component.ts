@@ -1,4 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import {MatDialog, MatDialogConfig} from "@angular/material";
+import { DialogboxComponent } from '../../../views/others/dialogbox/dialogbox.component';
+
 
 @Component({
   selector: 'app-sidenav',
@@ -9,7 +12,7 @@ export class SidenavComponent {
   @Input('hasIconMenu') public hasIconTypeMenuItem: boolean;
   @Input('iconMenuTitle') public iconTypeMenuTitle: string;
 
-  constructor() {}
+  constructor(private dialog: MatDialog) {}
   ngOnInit() {}
 
   // Only for demo purpose
@@ -26,4 +29,28 @@ export class SidenavComponent {
       ]
     });
   }
+
+  openDialog() {
+
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = false;
+    dialogConfig.data = {
+      id: 1,
+      title: 'Angular For Beginners'
+    };
+
+
+    const dialogRef = this.dialog.open(DialogboxComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(
+        data => console.log("Dialog output:", data)
+    ); 
+    
+    
+  }
+
+
+
 }

@@ -6,14 +6,14 @@ import { RouterModule, Router }  from '@angular/router';
 
 
 import { PrintingService } from '../../../printing.service';
-import { Route } from '@angular/compiler/src/core';
+
 
 @Component({
-  selector: 'app-create-requirement',
-  templateUrl: './create-requirement.component.html',
-  styleUrls: ['./create-requirement.component.scss']
+  selector: 'app-edit-job',
+  templateUrl: './edit-job.component.html',
+  styleUrls: ['./edit-job.component.scss']
 })
-export class CreateRequirementComponent implements OnInit {
+export class EditJobComponent implements OnInit {
 
   myForm: FormGroup;
   paperTypes = ["Thermal", "Old One", "New paper", "Silica"];

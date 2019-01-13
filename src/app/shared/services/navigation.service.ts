@@ -53,15 +53,22 @@ export class NavigationService {
     //   state: 'dashboard'
     // },
     {
-      name: 'New Requirement',
+      name: 'New Job',
       type: 'dropDown',
       tooltip: 'Chat',
       icon: 'build',
       state: 'dashboard',
       sub: [
         { name: 'Create', icon: 'settings', state: 'create/requirement' },
-        { name: 'Papers', icon: 'line_weight', state: 'dashboard' },
+        { name: 'Papers', icon: 'line_weight', state: 'create/making-papers' },
       ]
+    },
+    {
+      name: 'Edit Job',
+      type: 'link',
+      tooltip: 'Inbox',
+      icon: 'create',
+      state: 'create/requirement'
     },
     {
       name: 'Fabrication',
