@@ -30,10 +30,10 @@ import { SharedModule } from './../../shared/shared.module';
 
 import { AppBlankComponent } from './app-blank/app-blank.component';
 import { OthersRoutes } from "./others.routing";
-import { CreateRequirementComponent } from './create-requirement/create-requirement.component';
-import { MakePapersComponent } from './make-papers/make-papers.component';
+// import { CreateRequirementComponent } from './create-requirement/create-requirement.component';
+// import { MakePapersComponent } from './make-papers/make-papers.component';
 import { EditJobComponent } from './edit-job/edit-job.component';
-import { FabricationComponent } from './fabrication/fabrication.component';
+// import { FabricationComponent } from './fabrication/fabrication.component';
 // import { DialogboxComponent } from './dialogbox/dialogbox.component';
 
 @NgModule({
@@ -68,10 +68,10 @@ import { FabricationComponent } from './fabrication/fabrication.component';
   ],
   declarations: [
     AppBlankComponent,
-    CreateRequirementComponent,
-    MakePapersComponent,
     EditJobComponent,
-    FabricationComponent,
+    // CreateRequirementComponent,
+    // MakePapersComponent,
+    // FabricationComponent,
     // DialogboxComponent
   ]
 })

@@ -31,10 +31,11 @@ export const rootRouterConfig: Routes = [
         // data: { title: 'Others', breadcrumb: 'OTHERS'}
       },
       {
-        path: 'create', 
-        loadChildren: './views/others/others.module#OthersModule', 
+        path: 'job', 
+        loadChildren: './views/printingComponents/printingComponent.module#PrintingModule', 
         // data: { title: 'Others', breadcrumb: 'OTHERS'}
       }
+      
     ]
   },
   { 

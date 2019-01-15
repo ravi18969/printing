@@ -1,0 +1,464 @@
+<mat-card>
+  <form>
+    <div fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="center"
+    fxLayoutGap="5%"
+    fxLayoutGap.xs="0">
+      <mat-form-field fxFlex="50%">
+        <label>Select Job To fill Fabrication details</label>
+        <mat-select>
+          <mat-option>A</mat-option>
+          <mat-option>A</mat-option>
+          <mat-option>A</mat-option>
+          <mat-option>A</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <hr>
+  <mat-card>
+    <mat-card-title>Lamination</mat-card-title>
+    <div fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="left"
+    fxLayoutGap="5%"
+    fxLayoutGap.xs="0">
+      <mat-form-field fxFlex="20%">
+        <label>Select type of lamination</label>
+        <mat-select>
+          <mat-option>A</mat-option>
+          <mat-option>A</mat-option>
+          <mat-option>A</mat-option>
+          <mat-option>A</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field fxFlex="20%">
+          <mat-label>Completion date</mat-label>
+          <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix [for]="picker">
+            <mat-icon matDatepickerToggleIcon>date_range</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      
+      <mat-slide-toggle fxFlex="20%"
+          class="example-margin"
+          [color]="color"
+          [checked]="checked"
+          [disabled]="disabled">
+        Running
+      </mat-slide-toggle>
+      <mat-slide-toggle fxFlex="20%"
+          class="example-margin"
+          [color]="color2"
+          [checked]="checked"
+          [disabled]="disabled">
+        Completed
+      </mat-slide-toggle>
+      <mat-form-field fxFlex="20%">
+          <textarea matInput placeholder="Delay reason"></textarea>
+        </mat-form-field>
+    </div>
+  </mat-card>
+  <mat-card>
+    <mat-card-title>Punching</mat-card-title>
+    <div fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="left"
+    fxLayoutGap="5%"
+    fxLayoutGap.xs="0">
+      <!-- <mat-form-field fxFlex="20%">
+        <label>Select type of lamination</label>
+        <mat-select>
+          <mat-option>A</mat-option>
+          <mat-option>A</mat-option>
+          <mat-option>A</mat-option>
+          <mat-option>A</mat-option>
+          <mat-option>A</mat-option>
+        </mat-select>
+      </mat-form-field> -->
+      <mat-form-field fxFlex="20%">
+          <mat-label>Completion date</mat-label>
+          <input matInput [matDatepicker]="picker2" placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix [for]="picker2">
+            <mat-icon matDatepickerToggleIcon>date_range</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+      
+      <mat-slide-toggle fxFlex="20%"
+          class="example-margin"
+          [color]="color"
+          [checked]="checked"
+          [disabled]="disabled">
+        Running
+      </mat-slide-toggle>
+      <mat-slide-toggle fxFlex="20%"
+          class="example-margin"
+          [color]="color2"
+          [checked]="checked"
+          [disabled]="disabled">
+        Completed
+      </mat-slide-toggle>
+      <mat-form-field fxFlex="20%">
+          <textarea matInput placeholder="Delay reason"></textarea>
+        </mat-form-field>
+    </div>
+  </mat-card>
+  <mat-card>
+    <mat-card-title>UV</mat-card-title>
+    <div fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="left"
+    fxLayoutGap="5%"
+    fxLayoutGap.xs="0">
+      <mat-form-field fxFlex="20%">
+        <label>Select type of UV</label>
+        <mat-select>
+          <mat-option>A</mat-option>
+          <mat-option>B</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field fxFlex="20%">
+          <mat-label>Completion date</mat-label>
+          <input matInput [matDatepicker]="picker3" placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix [for]="picker3">
+            <mat-icon matDatepickerToggleIcon>date_range</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker3></mat-datepicker>
+      </mat-form-field>
+      
+      <mat-slide-toggle fxFlex="20%"
+          class="example-margin"
+          [color]="color"
+          [checked]="checked"
+          [disabled]="disabled">
+        Running
+      </mat-slide-toggle>
+      <mat-slide-toggle fxFlex="20%"
+          class="example-margin"
+          [color]="color2"
+          [checked]="checked"
+          [disabled]="disabled">
+        Completed
+      </mat-slide-toggle>
+      <mat-form-field fxFlex="20%">
+          <textarea matInput placeholder="Delay reason"></textarea>
+        </mat-form-field>
+    </div>
+  </mat-card>
+  <mat-card>
+    <mat-card-title>Foiling</mat-card-title>
+    <div fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="left"
+    fxLayoutGap="5%"
+    fxLayoutGap.xs="0">
+      <mat-form-field fxFlex="20%">
+        <label>Select type of Foiling</label>
+        <mat-select>
+          <mat-option>A</mat-option>
+          <mat-option>B</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field fxFlex="20%">
+          <mat-label>Completion date</mat-label>
+          <input matInput [matDatepicker]="picker4" placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix [for]="picker4">
+            <mat-icon matDatepickerToggleIcon>date_range</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker4></mat-datepicker>
+      </mat-form-field>
+      
+      <mat-slide-toggle fxFlex="20%"
+          class="example-margin"
+          [color]="color"
+          [checked]="checked"
+          [disabled]="disabled">
+        Running
+      </mat-slide-toggle>
+      <mat-slide-toggle fxFlex="20%"
+          class="example-margin"
+          [color]="color2"
+          [checked]="checked"
+          [disabled]="disabled">
+        Completed
+      </mat-slide-toggle>
+      <mat-form-field fxFlex="20%">
+          <textarea matInput placeholder="Delay reason"></textarea>
+        </mat-form-field>
+    </div>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title>Folding</mat-card-title>
+    <div fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="left"
+    fxLayoutGap="5%"
+    fxLayoutGap.xs="0">
+      <!-- <mat-form-field fxFlex="20%">
+        <label>Select type of lamination</label>
+        <mat-select>
+          <mat-option>A</mat-option>
+          <mat-option>A</mat-option>
+          <mat-option>A</mat-option>
+          <mat-option>A</mat-option>
+          <mat-option>A</mat-option>
+        </mat-select> 
+      </mat-form-field> -->
+      <mat-form-field fxFlex="20%">
+          <mat-label>Completion date</mat-label>
+          <input matInput [matDatepicker]="picker5" placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix [for]="picker5">
+            <mat-icon matDatepickerToggleIcon>date_range</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker5></mat-datepicker>
+      </mat-form-field>
+      
+      <mat-slide-toggle fxFlex="20%"
+          class="example-margin"
+          [color]="color"
+          [checked]="checked"
+          [disabled]="disabled">
+        Running
+      </mat-slide-toggle>
+      <mat-slide-toggle fxFlex="20%"
+          class="example-margin"
+          [color]="color2"
+          [checked]="checked"
+          [disabled]="disabled">
+        Completed
+      </mat-slide-toggle>
+      <mat-form-field fxFlex="20%">
+          <textarea matInput placeholder="Delay reason"></textarea>
+        </mat-form-field>
+    </div>
+  </mat-card>
+    <mat-card>
+      <mat-card-title>Pinning</mat-card-title>
+      <div fxLayout
+      fxLayout.xs="column"
+      fxLayoutAlign="left"
+      fxLayoutGap="5%"
+      fxLayoutGap.xs="0">
+        <!-- <mat-form-field fxFlex="20%">
+          <label>Select type of lamination</label>
+          <mat-select>
+            <mat-option>A</mat-option>
+            <mat-option>A</mat-option>
+            <mat-option>A</mat-option>
+            <mat-option>A</mat-option>
+            <mat-option>A</mat-option>
+          </mat-select> 
+        </mat-form-field> -->
+        <mat-form-field fxFlex="20%">
+            <mat-label>Completion date</mat-label>
+            <input matInput [matDatepicker]="picker6" placeholder="Choose a date">
+            <mat-datepicker-toggle matSuffix [for]="picker6">
+              <mat-icon matDatepickerToggleIcon>date_range</mat-icon>
+            </mat-datepicker-toggle>
+            <mat-datepicker #picker6></mat-datepicker>
+        </mat-form-field>
+        
+        <mat-slide-toggle fxFlex="20%"
+            class="example-margin"
+            [color]="color"
+            [checked]="checked"
+            [disabled]="disabled">
+          Running
+        </mat-slide-toggle>
+        <mat-slide-toggle fxFlex="20%"
+            class="example-margin"
+            [color]="color2"
+            [checked]="checked"
+            [disabled]="disabled">
+          Completed
+        </mat-slide-toggle>
+        <mat-form-field fxFlex="20%">
+            <textarea matInput placeholder="Delay reason"></textarea>
+          </mat-form-field>
+      </div>
+    </mat-card>
+  <mat-card>
+    <mat-card-title>Stitching</mat-card-title>
+    <div fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="left"
+    fxLayoutGap="5%"
+    fxLayoutGap.xs="0">
+      <!-- <mat-form-field fxFlex="20%">
+        <label>Select type of lamination</label>
+        <mat-select>
+          <mat-option>A</mat-option>
+          <mat-option>A</mat-option>
+          <mat-option>A</mat-option>
+          <mat-option>A</mat-option>
+          <mat-option>A</mat-option>
+        </mat-select>
+      </mat-form-field> -->
+      <mat-form-field fxFlex="20%">
+          <mat-label>Completion date</mat-label>
+          <input matInput [matDatepicker]="picker7" placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix [for]="picker7">
+            <mat-icon matDatepickerToggleIcon>date_range</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker7></mat-datepicker>
+      </mat-form-field>
+      
+      <mat-slide-toggle fxFlex="20%"
+          class="example-margin"
+          [color]="color"
+          [checked]="checked"
+          [disabled]="disabled">
+        Running
+      </mat-slide-toggle>
+      <mat-slide-toggle fxFlex="20%"
+          class="example-margin"
+          [color]="color2"
+          [checked]="checked"
+          [disabled]="disabled">
+        Completed
+      </mat-slide-toggle>
+      <mat-form-field fxFlex="20%">
+          <textarea matInput placeholder="Delay reason"></textarea>
+        </mat-form-field>
+    </div>
+  </mat-card>
+  <mat-card>
+    <mat-card-title>Binding</mat-card-title>
+    <div fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="left"
+    fxLayoutGap="5%"
+    fxLayoutGap.xs="0">
+      <!-- <mat-form-field fxFlex="20%">
+        <label>Select type of lamination</label>
+        <mat-select>
+          <mat-option>A</mat-option>
+          <mat-option>A</mat-option>
+          <mat-option>A</mat-option>
+          <mat-option>A</mat-option>
+          <mat-option>A</mat-option>
+        </mat-select>
+      </mat-form-field> -->
+      <mat-form-field fxFlex="20%">
+          <mat-label>Completion date</mat-label>
+          <input matInput [matDatepicker]="picker8" placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix [for]="picker8">
+            <mat-icon matDatepickerToggleIcon>date_range</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker8></mat-datepicker>
+      </mat-form-field>
+      
+      <mat-slide-toggle fxFlex="20%"
+          class="example-margin"
+          [color]="color"
+          [checked]="checked"
+          [disabled]="disabled">
+        Running
+      </mat-slide-toggle>
+      <mat-slide-toggle fxFlex="20%"
+          class="example-margin"
+          [color]="color2"
+          [checked]="checked"
+          [disabled]="disabled">
+        Completed
+      </mat-slide-toggle>
+      <mat-form-field fxFlex="20%">
+          <textarea matInput placeholder="Delay reason"></textarea>
+        </mat-form-field>
+    </div>
+  </mat-card>
+  <mat-card>
+    <mat-card-title>Pasting</mat-card-title>
+    <div fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="left"
+    fxLayoutGap="5%"
+    fxLayoutGap.xs="0">
+      <!-- <mat-form-field fxFlex="20%">
+        <label>Select type of lamination</label>
+        <mat-select>
+          <mat-option>A</mat-option>
+          <mat-option>A</mat-option>
+          <mat-option>A</mat-option>
+          <mat-option>A</mat-option>
+          <mat-option>A</mat-option>
+        </mat-select>
+      </mat-form-field> -->
+      <mat-form-field fxFlex="20%">
+          <mat-label>Completion date</mat-label>
+          <input matInput [matDatepicker]="picker9" placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix [for]="picker9">
+            <mat-icon matDatepickerToggleIcon>date_range</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker9></mat-datepicker>
+      </mat-form-field>
+      
+      <mat-slide-toggle fxFlex="20%"
+          class="example-margin"
+          [color]="color"
+          [checked]="checked"
+          [disabled]="disabled">
+        Running
+      </mat-slide-toggle>
+      <mat-slide-toggle fxFlex="20%"
+          class="example-margin"
+          [color]="color2"
+          [checked]="checked"
+          [disabled]="disabled">
+        Completed
+      </mat-slide-toggle>
+      <mat-form-field fxFlex="20%">
+          <textarea matInput placeholder="Delay reason"></textarea>
+        </mat-form-field>
+    </div>
+  </mat-card>
+  <mat-card>
+    <mat-card-title>Cutting</mat-card-title>
+    <div fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="left"
+    fxLayoutGap="5%"
+    fxLayoutGap.xs="0">
+      <!-- <mat-form-field fxFlex="20%">
+        <label>Select type of lamination</label>
+        <mat-select>
+          <mat-option>A</mat-option>
+          <mat-option>A</mat-option>
+          <mat-option>A</mat-option>
+          <mat-option>A</mat-option>
+          <mat-option>A</mat-option>
+        </mat-select>
+      </mat-form-field> -->
+      <mat-form-field fxFlex="20%">
+          <mat-label>Completion date</mat-label>
+          <input matInput [matDatepicker]="picker10" placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix [for]="picker10">
+            <mat-icon matDatepickerToggleIcon>date_range</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker10></mat-datepicker>
+      </mat-form-field>
+      
+      <mat-slide-toggle fxFlex="20%"
+          class="example-margin"
+          [color]="color"
+          [checked]="checked"
+          [disabled]="disabled">
+        Running
+      </mat-slide-toggle>
+      <mat-slide-toggle fxFlex="20%"
+          class="example-margin"
+          [color]="color2"
+          [checked]="checked"
+          [disabled]="disabled">
+        Completed
+      </mat-slide-toggle>
+      <mat-form-field fxFlex="20%">
+          <textarea matInput placeholder="Delay reason"></textarea>
+        </mat-form-field>
+    </div>
+  </mat-card>
+  </form>
+</mat-card>

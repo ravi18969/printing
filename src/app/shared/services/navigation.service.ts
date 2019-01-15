@@ -59,8 +59,8 @@ export class NavigationService {
       icon: 'build',
       state: 'dashboard',
       sub: [
-        { name: 'Create', icon: 'settings', state: 'create/requirement' },
-        { name: 'Papers', icon: 'line_weight', state: 'create/making-papers' },
+        { name: 'Create', icon: 'settings', state: 'job/create-job' },
+        { name: 'Papers', icon: 'line_weight', state: 'job/select-papers' },
       ]
     },
     {
@@ -75,7 +75,7 @@ export class NavigationService {
       type: 'link',
       tooltip: 'Inbox',
       icon: 'format_paint',
-      state: 'dashboard'
+      state: 'job/fabrication'
     },
     // {
     //   name: 'Step4',
