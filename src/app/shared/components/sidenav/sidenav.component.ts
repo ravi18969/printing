@@ -30,27 +30,25 @@ export class SidenavComponent {
     });
   }
 
-  openDialog() {
+  // (click)="openDialog()"
+  // openDialog() {
 
-    const dialogConfig = new MatDialogConfig();
+  //   const dialogConfig = new MatDialogConfig();
 
-    dialogConfig.disableClose = false;
-    dialogConfig.autoFocus = false;
-    dialogConfig.data = {
-      id: 1,
-      title: 'Angular For Beginners'
-    };
+  //   dialogConfig.disableClose = false;
+  //   dialogConfig.autoFocus = false;
+  //   dialogConfig.data = {
+  //     id: 1,
+  //     title: 'Angular For Beginners'
+  //   };
 
 
-    const dialogRef = this.dialog.open(DialogboxComponent, dialogConfig);
+  //   const dialogRef = this.dialog.open(DialogboxComponent, dialogConfig);
 
-    dialogRef.afterClosed().subscribe(
-        data => console.log("Dialog output:", data)
-    ); 
+  //   dialogRef.afterClosed().subscribe(
+  //       data => console.log("Dialog output:", data)
+  //   ); 
     
     
   }
 
-
-
-}

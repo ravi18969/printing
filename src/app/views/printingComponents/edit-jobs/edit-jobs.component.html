@@ -1,0 +1,178 @@
+  <!-- <mat-card-title style="font-size: 2.2em !important;text-align: center;color:slategray"></mat-card-title>
+  <br> -->
+  <h1 style="font-size: 2.2em !important;position: relative;left: 5%;color:slategray">Edit Job</h1>
+  <form>
+    <div fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="left"
+    fxLayoutGap="5%"
+    fxLayoutGap.xs="0">
+      <mat-form-field fxFlex="20%" style="left: 5%;">
+        <mat-select placeholder="Select Job Id to edit" (selectionChange)="jobIdChangeHandler($event)">
+          <mat-option *ngFor="let jobIdList of jobIdLists" [value]="jobIdList">{{jobIdList}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </form>
+  <mat-card>
+    <form (ngSubmit)="onSubmit(myForm)" [formGroup]="myForm">
+      <div fxLayout
+      fxLayout.xs="column"
+      fxLayoutAlign="left"
+      fxLayoutGap="5%"
+      fxLayoutGap.xs="0">
+        <mat-form-field fxFlex="47%">
+          <mat-label>Vendor Name</mat-label>
+          <input matInput id="vendor" type="text" formControlName="vendor" placeholder="Enter vendor name" [errorStateMatcher]="matcher">   
+          <mat-error *ngIf="myForm.controls.vendor.invalid && (myForm.controls.vendor.dirty || myForm.controls.vendor.touched)">
+            <mat-error *ngIf="myForm.controls.vendor.errors.required">
+                Vendor is required.
+            </mat-error>
+            <mat-error  *ngIf="myForm.controls.vendor.errors.minlength">
+                    Vendor must be at least 4 characters long.
+            </mat-error>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field fxFlex="">
+          <mat-label>Paper Type</mat-label>
+          <mat-select formControlName="paperType" placeholder="Paper Type" (selectionChange)="selectChangeHandler($event)">
+              <mat-option *ngFor="let paperType of paperTypes" [value]="paperType">{{paperType}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="myForm.controls.paperType.invalid && (myForm.controls.paperType.dirty || myForm.controls.paperType.touched)">
+              <mat-error *ngIf="myForm.controls.paperType.errors.required">
+                  Please select paper type.
+              </mat-error>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field *ngIf="specialPaper" fxFlex="">
+          <input matInput type="text" name="specialPaper" formControlName="specialPaper" placeholder="Enter type of papers you want">       
+        </mat-form-field>
+      </div>
+      
+      <div fxLayout
+      fxLayout.xs="column"
+      fxLayoutAlign="center"
+      fxLayoutGap="5%"
+      fxLayoutGap.xs="0">   
+        <mat-form-field fxFlex="50%">
+            <mat-label>Paper Size</mat-label>
+            <mat-select formControlName="paperSize" placeholder="Paper Size">
+            <mat-option *ngFor="let paperSize of paperSizes" [value]="paperSize">{{paperSize}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="myForm.controls.paperSize.invalid && (myForm.controls.paperSize.dirty || myForm.controls.paperSize.touched)">
+            <mat-error *ngIf="myForm.controls.paperSize.errors.required">
+                Please select size of paper.
+            </mat-error>
+        </mat-error>
+        </mat-form-field>
+        <mat-form-field fxFlex="50%">
+            <mat-label>GSM</mat-label>
+            <mat-select formControlName="gsm" placeholder="Paper GSM">
+            <mat-option *ngFor="let gsm of gsms" [value]="gsm">{{gsm}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="myForm.controls.gsm.invalid && (myForm.controls.gsm.dirty || myForm.controls.gsm.touched)">
+            <mat-error *ngIf="myForm.controls.gsm.errors.required">
+                Please select paper GSM.
+            </mat-error>
+        </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div fxLayout
+      fxLayout.xs="column"
+      fxLayoutAlign="center"
+      fxLayoutGap="5%"
+      fxLayoutGap.xs="0">
+        <mat-form-field fxFlex="50%">
+            <mat-label>No of Papers</mat-label>
+            <input matInput type="number" formControlName="plates" placeholder="Enter number of plates">
+        <mat-error *ngIf="myForm.controls.plates.invalid && (myForm.controls.plates.dirty || myForm.controls.plates.touched)">
+            <mat-error *ngIf="myForm.controls.plates.errors.required">
+                Please enter no of papers required
+            </mat-error>
+        </mat-error>
+        </mat-form-field>
+        <mat-form-field fxFlex="50%">
+            <mat-label>Expected Delivery</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="expectedDeliveryDate" placeholder="Choose a date" readonly>
+            <mat-datepicker-toggle matSuffix [for]="picker">
+              <mat-icon matDatepickerToggleIcon>date_range</mat-icon>
+            </mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div fxLayout
+      fxLayout.xs="column"
+      fxLayoutAlign="center"
+      fxLayoutGap="5%"
+      fxLayoutGap.xs="0">
+        <mat-form-field fxFlex="50%">
+          <mat-label>Weight in RIM</mat-label>
+          <input matInput type="number" formControlName="rimWeight" placeholder="Enter weight in RIM">   
+          <mat-error *ngIf="myForm.controls.rimWeight.invalid && (myForm.controls.rimWeight.dirty || myForm.controls.rimWeight.touched)">
+            <mat-error *ngIf="myForm.controls.rimWeight.errors.required">
+              Rim weight is required.
+            </mat-error>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field fxFlex="50%">
+          <mat-label>Unit Price</mat-label>
+          <input matInput type="number" formControlName="unitPrice" placeholder="Enter Unit price">   
+          <mat-error *ngIf="myForm.controls.unitPrice.invalid && (myForm.controls.unitPrice.dirty || myForm.controls.unitPrice.touched)">
+            <mat-error *ngIf="myForm.controls.unitPrice.errors.required">
+              Unit price is required.
+            </mat-error>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div fxLayout
+      fxLayout.xs="column"
+      fxLayoutAlign="center"
+      fxLayoutGap="5%"
+      fxLayoutGap.xs="0">
+        <mat-form-field fxFlex="50%">
+          <mat-label>Plates</mat-label>
+          <mat-select formControlName="plateType" placeholder="Select Plate type">
+              <mat-option *ngFor="let plateType of plateTypes" [value]="plateType">{{plateType}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="myForm.controls.plateType.invalid && (myForm.controls.plateType.dirty || myForm.controls.plateType.touched)">
+              <mat-error *ngIf="myForm.controls.plateType.errors.required">
+              Please select plate type.
+              </mat-error>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field fxFlex="50%">
+            <mat-label>Print Type</mat-label>
+            <mat-select formControlName="printMode" placeholder="Print Mode" >
+              <mat-option *ngFor="let printMode of printModes" [value]="printMode">{{printMode}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="myForm.controls.printMode.invalid && (myForm.controls.printMode.dirty || myForm.controls.printMode.touched)">
+                <mat-error *ngIf="myForm.controls.printMode.errors.required">
+                  Please select print mode.
+                </mat-error>
+            </mat-error>
+          </mat-form-field>
+      </div>
+
+      <div fxLayout
+      fxLayout.xs="column"
+      fxLayoutAlign="center"
+      fxLayoutGap="5%"
+      fxLayoutGap.xs="0">
+        <mat-form-field fxFlex="100%">
+            <mat-label>Description</mat-label>
+            <textarea matInput type="text" formControlName="description" placeholder="Description" rows="5"></textarea>
+        </mat-form-field>
+      </div>
+              
+      <!-- <input matInput type="number" formControlName="_id" placeholder="Enter Unit price" hidden>   
+      <input matInput type="number" formControlName="created" placeholder="Enter Unit price" hidden>   
+      <input matInput type="number" formControlName="workingStatus" placeholder="Enter Unit price" hidden>   
+      <input matInput type="number" formControlName="jobId" placeholder="Enter Unit price" hidden>    -->
+
+        <mat-card-actions>
+          <button mat-flat-button color="primary" [disabled]="myForm.invalid" type="submit" style="position: relative;left: 50%; transform: translateX(-50%);border-radius: 1.54em;">Submit</button>
+        </mat-card-actions>
+    </form>
+  </mat-card>

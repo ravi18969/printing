@@ -105,7 +105,7 @@
   </mat-card> -->
   <!-- <mat-card class="">Welcome back, "Admin</mat-card> -->
   <mat-card class="progress_report">
-      <mat-card-title>Today</mat-card-title>
+      <mat-card-title>Weekly</mat-card-title>
       <mat-card-content>
         <h1 style="color: #31B9F6;">25</h1>
         <p>Due Task</p>
@@ -132,13 +132,13 @@
         <mat-card-footer>Closed toady: 0</mat-card-footer>
       </mat-card>
       <mat-card class="progress_report">
-        <mat-card-title>Features</mat-card-title>
+        <mat-card-title>Total Printing</mat-card-title>
         <mat-card-content>
-          <h1 style="color: #607D8B;">45</h1>
+          <h1 style="color: #607D8B;">145</h1>
           <p>Proposals</p>
         </mat-card-content>
         <hr>
-        <mat-card-footer>Implemented: 6</mat-card-footer>
+        <mat-card-footer>Implemented: 126</mat-card-footer>
       </mat-card>
       <br><br>
       <!-- <mat-card style="height: 200px;">
@@ -205,5 +205,40 @@
                   </mat-horizontal-stepper>
           </mat-card-content>
         </mat-card> -->
+
+        <mat-card style="width: 95%;position: relative;">
+          
+          <mat-card-title>Printing Status</mat-card-title>
+          <table>
+            <tr>
+              <th>Job Id</th>
+              <th>Delivery Date</th>
+              <th>Lamination</th>
+              <th>Punching</th>
+              <th>UV</th>
+              <th>Foiling</th>
+              <th>Folding</th>
+              <th>Pinning</th>
+              <th>Stitching</th>
+              <th>Binding</th>
+              <th>Pasting</th>
+              <th>Cutting</th>
+            </tr>
+            <tr *ngFor="let fab of fabrication">
+              <td>{{fab.jobId}}</td>
+              <td>{{fab.deliveryDate.split('T')[0]}}</td>
+              <td *ngIf="fab.laminationStatus !== null" [class]='fab.laminationStatus'>{{fab.laminationStatus}}</td>
+              <td *ngIf="fab.punchingStatus !== null" [class]='fab.punchingStatus'>{{fab.punchingStatus}}</td>
+              <td *ngIf="fab.uvStatus !== null" [class]='fab.uvStatus'>{{fab.uvStatus}}</td>
+              <td *ngIf="fab.foilingStatus !== null" [class]='fab.foilingStatus'>{{fab.foilingStatus}}</td>
+              <td *ngIf="fab.foldingStatus !== null" [class]='fab.foldingStatus'>{{fab.foldingStatus}}</td>
+              <td *ngIf="fab.pinningStatus !== null" [class]='fab.pinningStatus'>{{fab.pinningStatus}}</td>
+              <td *ngIf="fab.stitchingStatus !== null" [class]='fab.stitchingStatus'>{{fab.stitchingStatus}}</td>
+              <td *ngIf="fab.bindingStatus !== null" [class]='fab.bindingStatus'>{{fab.bindingStatus}}</td>
+              <td *ngIf="fab.pastingStatus !== null" [class]='fab.pastingStatus'>{{fab.pastingStatus}}</td>
+              <td *ngIf="fab.cuttingStatus !== null" [class]='fab.cuttingStatus'>{{fab.cuttingStatus}}</td>
+            </tr>
+          </table>
+        </mat-card>
 </div> 
 

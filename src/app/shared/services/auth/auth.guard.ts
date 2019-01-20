@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
+import { CanActivate, CanActivateChild , ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 
 @Injectable()
-export class AuthGuard implements CanActivate {
+export class AuthGuard implements CanActivate, CanActivateChild {
   public authToken;
   private isAuthenticated = true; // Set this value dynamically
+  private isCreated = false;
   
   constructor(private router: Router) {}
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
@@ -14,4 +15,11 @@ export class AuthGuard implements CanActivate {
     this.router.navigate(['/sessions/signin']);
     return false;
   }
+  canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    if (this.isCreated) {
+      return true
+    }
+    this.router.navigate(['/job/create-job']);
+    return false;
+  }  
 }
