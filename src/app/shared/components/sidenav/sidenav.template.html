@@ -22,7 +22,7 @@
       </div>
       <div *ngIf="!item.disabled && item.type !== 'separator' && item.type !== 'icon'" class="lvl1">
         
-        <a routerLink="" (click)="openDialog()" appDropdownToggle matRipple *ngIf="item.type === 'link' && item.name == 'Edit Job'; else elseBlock">
+        <a routerLink="/{{item.state}}" appDropdownToggle matRipple *ngIf="item.type === 'link' && item.name == 'Edit Job'; else elseBlock">
           <mat-icon>{{item.icon}}</mat-icon>
           <span class="item-name lvl1">{{item.name | translate}}</span>
           <span fxFlex></span>

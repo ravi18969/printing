@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
+import { PrintingService } from '../../../printing.service';
 
 
 
@@ -10,7 +11,16 @@ import {FormControl, Validators} from '@angular/forms';
 })
 export class AppBlankComponent implements OnInit {
 
-  constructor() { }
+  // jobIds = [189569520, 5632244355, 189569520, 189569520];
+  fabrication =[];
+  constructor(private PS: PrintingService) { 
+    this.PS.getFabricationDetails()
+    .subscribe((res) => {
+      Object.keys(res).forEach(key => {
+        this.fabrication.push(res[key]);     // the name of the current key.   // the value of the current key.
+        });
+    });
+  }
 
   ngOnInit() {
   }

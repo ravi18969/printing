@@ -1,7 +1,7 @@
 .progress_report {
     display: inline-block;
     padding: 0px !important;
-    margin-left: 45px;
+    margin-left: 3%;
     margin-top: 30px;
     width: 20%;
     height: 230px;
@@ -36,3 +36,45 @@ button {
     margin-top: 4%;
     
 }
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid white;
+    text-align: left;
+    padding: 8px;
+  }
+  td:nth-child(n + 2) {
+      border-radius: 1.54em;
+  }
+
+  td:empty {
+    background-color: rgb(221, 220, 220);
+  }
+  td:nth-child(1) {
+      font-size: 1em;
+      color: white;
+      font-weight: bold;
+      background-color: rgb(109, 102, 106);
+  }
+  th {
+      background: lightslategrey;
+      color: white;
+  }
+
+  .Running {
+      color: white;
+      background: rgb(239, 180, 44);
+  }
+  .Completed {
+      color: white;
+      background: rgb(67, 196, 67);
+  }
+  
+  /* tr:nth-child(even) {
+    background-color: #dddddd;
+  } */

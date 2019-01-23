@@ -21,6 +21,9 @@ import {
   MatSelectModule,
   MatDatepickerModule,
   MatNativeDateModule,
+  MatTableModule,
+  MatPaginatorModule,
+  MatSortModule,
  } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
@@ -31,6 +34,8 @@ import { PrintingRoutes } from './printingComponent.routing';
 import { JobComponent } from './job/job.component';
 import { PaperSelectionComponent } from './paper-selection/paper-selection.component';
 import { FabricationComponent } from './fabrication/fabrication.component';
+import { EditJobsComponent } from './edit-jobs/edit-jobs.component';
+import { InventoryComponent } from './inventory/inventory.component';
 
 @NgModule({
   imports: [
@@ -60,12 +65,17 @@ import { FabricationComponent } from './fabrication/fabrication.component';
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
     RouterModule.forChild(PrintingRoutes)
   ],
   declarations: [
       JobComponent,
       PaperSelectionComponent,
-      FabricationComponent
+      FabricationComponent,
+      EditJobsComponent,
+      InventoryComponent
    
   ]
 })

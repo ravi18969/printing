@@ -68,7 +68,7 @@ export class NavigationService {
       type: 'link',
       tooltip: 'Inbox',
       icon: 'create',
-      state: 'create/requirement'
+      state: 'job/edit-job'
     },
     {
       name: 'Fabrication',
@@ -100,7 +100,7 @@ export class NavigationService {
       type: 'link',
       tooltip: 'Inbox',
       icon: 'store',
-      state: 'dashboard'
+      state: 'job/inventory'
     },
     {
       name: 'List items',

@@ -1,118 +1,13 @@
 <div style="padding:20px;">
-  <!-- <mat-horizontal-stepper>
-    <mat-step label="Step 1" state="phone">
-      <p>Put down your phones.</p>
-      <div>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </mat-step>
-    <mat-step label="Step 2" state="phone">
-      <p>Put down your phones.</p>
-      <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
-      </div>
-    </mat-step>
-    <mat-step label="Step 3" state="phone">
-      <p>Put down your phones.</p>
-      <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
-      </div>
-    </mat-step>
-    <mat-step label="Step 4" state="phone">
-      <p>Put down your phones.</p>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </mat-step>
-    <mat-step label="Step 5" state="chat">
-      <p>About to complete.</p>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </mat-step>
-    <mat-step label="Step 6">
-      <p>You're welcome.</p>
-    </mat-step> -->
-  
-    <!-- Icon overrides. -->
-    <!-- <ng-template matStepperIcon="phone">
-      <mat-icon>call_end</mat-icon>
-    </ng-template>
-    <ng-template matStepperIcon="chat">
-      <mat-icon>forum</mat-icon>
-    </ng-template>
-  </mat-horizontal-stepper> -->
-
-  <!-- <mat-card class="example-card" style="width:340px; height: 220px;">
-    <mat-card-title style="text-align:center;font-weight: bold;">Virtual Card</mat-card-title>
-    <img mat-card-image src="assets/images/face-4.jpg" alt="Photo of a Shiba Inu" style="width:100px; height: 100px; border-radius: 50%;margin: 15px 50px 0px 0px;">
-    <mat-card-content style="display:inline-block;">
-      <p style="font-weight: bold;">Name: ALen Doe</p>
-      <p style="font-weight: bold;">Job ID:AD345</p>
-      <p style="font-weight: bold;">Vendor Name:Developer</p>
-    </mat-card-content>
-    <p>Job Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-
-  </mat-card> -->
-
-  <!-- <mat-card class="p-0">
-    <mat-card-title class="">
-      <div class="card-title-text">Horizontal</div>
-      <mat-divider></mat-divider>
-    </mat-card-title>
-    <mat-card-content>
-      <mat-horizontal-stepper [linear]="true">
-        <mat-step [stepControl]="firstFormGroup">
-          <form [formGroup]="firstFormGroup">
-            <ng-template matStepLabel>Step 1</ng-template>
-            <mat-form-field class="pt-1 pb-1">
-              <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
-            </mat-form-field>
-            <div>
-              <button mat-raised-button color="primary" matStepperNext>Next</button>
-            </div>
-          </form>
-        </mat-step>
-        <mat-step [stepControl]="secondFormGroup">
-          <form [formGroup]="secondFormGroup">
-            <ng-template matStepLabel>Fill out your address</ng-template>
-            <mat-form-field class="pt-1 pb-1">
-              <input matInput placeholder="Address" formControlName="secondCtrl" required>
-            </mat-form-field>
-            <div>
-              <button mat-raised-button color="accent" matStepperPrevious>Back</button>
-              <button mat-raised-button color="primary" matStepperNext>Next</button>
-            </div>
-          </form>
-        </mat-step>
-        <mat-step>
-          <ng-template matStepLabel>Done</ng-template>
-          <div>
-            <mat-icon class="pt-1" [style.fontSize]="'36px'">check</mat-icon>
-          </div>
-          <div class="pb-1 mb-1"> You Are Done.</div>
-          <div>
-            <button mat-raised-button color="accent" matStepperPrevious>Back</button>
-            <button mat-raised-button color="primary" (click)="submit()">Submit</button>
-          </div>
-        </mat-step>
-      </mat-horizontal-stepper>
-    </mat-card-content>
-  </mat-card> -->
-  <!-- <mat-card class="">Welcome back, "Admin</mat-card> -->
   <mat-card class="progress_report">
-      <mat-card-title>Today</mat-card-title>
+      <mat-card-title>Weekly</mat-card-title>
       <mat-card-content>
         <h1 style="color: #31B9F6;">25</h1>
         <p>Due Task</p>
       </mat-card-content>
       <hr>
       <mat-card-footer>Completed: 8</mat-card-footer>
-    </mat-card>
+  </mat-card>
   <mat-card class="progress_report">
       <mat-card-title>Overdue</mat-card-title>
       <mat-card-content>
@@ -121,26 +16,28 @@
       </mat-card-content>
       <hr>
       <mat-card-footer>Yesterday's over: 8</mat-card-footer>
-    </mat-card>
-    <mat-card class="progress_report">
-        <mat-card-title>Issues</mat-card-title>
-        <mat-card-content>
-          <h1 style="color: #FF9800;">6</h1>
-          <p>Open</p>
-        </mat-card-content>
-        <hr>
-        <mat-card-footer>Closed toady: 0</mat-card-footer>
-      </mat-card>
-      <mat-card class="progress_report">
-        <mat-card-title>Features</mat-card-title>
-        <mat-card-content>
-          <h1 style="color: #607D8B;">45</h1>
-          <p>Proposals</p>
-        </mat-card-content>
-        <hr>
-        <mat-card-footer>Implemented: 6</mat-card-footer>
-      </mat-card>
-      <br><br>
+  </mat-card>
+  <mat-card class="progress_report">
+    <mat-card-title>Issues</mat-card-title>
+    <mat-card-content>
+      <h1 style="color: #FF9800;">6</h1>
+      <p>Open</p>
+    </mat-card-content>
+    <hr>
+    <mat-card-footer>Total Printing: 126</mat-card-footer>
+  </mat-card>
+
+  <mat-card class="progress_report">
+    <mat-card-title>Printing</mat-card-title>
+    <mat-card-content>
+      <h1 style="color: #607D8B;">6</h1>
+      <p>Proposals</p>
+    </mat-card-content>
+    <hr>
+    <mat-card-footer>Implemented: 126</mat-card-footer>
+  </mat-card>
+  
+  <br><br>
       <!-- <mat-card style="height: 200px;">
           <a mat-fab color="primary">Create <mat-icon>build</mat-icon></a>
 
@@ -204,6 +101,41 @@
                     </ng-template>
                   </mat-horizontal-stepper>
           </mat-card-content>
+        </mat-card> -->
+
+        <!-- <mat-card style="width: 95%;position: relative;">
+          
+          <mat-card-title>Printing Status</mat-card-title>
+          <table>
+            <tr>
+              <th>Job Id</th>
+              <th>Delivery Date</th>
+              <th>Lamination</th>
+              <th>Punching</th>
+              <th>UV</th>
+              <th>Foiling</th>
+              <th>Folding</th>
+              <th>Pinning</th>
+              <th>Stitching</th>
+              <th>Binding</th>
+              <th>Pasting</th>
+              <th>Cutting</th>
+            </tr>
+            <tr *ngFor="let fab of fabrication">
+              <td>{{fab.jobId}}</td>
+              <td>{{fab.deliveryDate.split('T')[0]}}</td>
+              <td *ngIf="fab.laminationStatus !== null" [class]='fab.laminationStatus'>{{fab.laminationStatus}}</td>
+              <td *ngIf="fab.punchingStatus !== null" [class]='fab.punchingStatus'>{{fab.punchingStatus}}</td>
+              <td *ngIf="fab.uvStatus !== null" [class]='fab.uvStatus'>{{fab.uvStatus}}</td>
+              <td *ngIf="fab.foilingStatus !== null" [class]='fab.foilingStatus'>{{fab.foilingStatus}}</td>
+              <td *ngIf="fab.foldingStatus !== null" [class]='fab.foldingStatus'>{{fab.foldingStatus}}</td>
+              <td *ngIf="fab.pinningStatus !== null" [class]='fab.pinningStatus'>{{fab.pinningStatus}}</td>
+              <td *ngIf="fab.stitchingStatus !== null" [class]='fab.stitchingStatus'>{{fab.stitchingStatus}}</td>
+              <td *ngIf="fab.bindingStatus !== null" [class]='fab.bindingStatus'>{{fab.bindingStatus}}</td>
+              <td *ngIf="fab.pastingStatus !== null" [class]='fab.pastingStatus'>{{fab.pastingStatus}}</td>
+              <td *ngIf="fab.cuttingStatus !== null" [class]='fab.cuttingStatus'>{{fab.cuttingStatus}}</td>
+            </tr>
+          </table>
         </mat-card> -->
 </div> 
 

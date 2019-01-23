@@ -1,0 +1,311 @@
+<mat-card>
+  <mat-card-title style="font-size: 2.2em !important;position: relative;left: 3%;color:slategray">Fabrication Process</mat-card-title>
+  <form (ngSubmit)="onSubmit(myForm)" [formGroup]="myForm">
+    <div fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign=""
+    fxLayoutGap="5%"
+    fxLayoutGap.xs="0">
+      <mat-form-field fxFlex="20%" style="left: 3%;">
+        <mat-select formControlName="jobId" (selectionChange)="jobIdChangeHandler($event)" placeholder="Select Job Id For Fabrication">
+          <mat-option *ngFor="let jobIdList of jobIdLists" [value]="jobIdList">{{jobIdList}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  <mat-card>
+    <mat-card-title>Lamination</mat-card-title>
+    <div fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="left"
+    fxLayoutGap="5%"
+    fxLayoutGap.xs="0">
+      <mat-form-field fxFlex="25%">
+        <mat-select formControlName="laminationType" placeholder="Select type of lamination">
+          <mat-option value="TypeA">TypeA</mat-option>
+          <mat-option value="TypeB">TypeB</mat-option>
+          <mat-option value="TypeC">TypeC</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field fxFlex="25%">
+          <mat-label>Completion date</mat-label>
+          <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="laminationDate">
+          <mat-datepicker-toggle matSuffix [for]="picker">
+            <mat-icon matDatepickerToggleIcon>date_range</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field fxFlex="25%">
+          <mat-select formControlName="laminationStatus" placeholder="Change Status">
+            <mat-option value="Running">Running</mat-option>
+            <mat-option value="Completed">Completed</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field fxFlex="25%">
+            <input matInput formControlName="laminationDelayReason"placeholder="Reason for Delay">
+        </mat-form-field>
+    </div>
+  </mat-card>
+  <mat-card>
+    <mat-card-title>Punching</mat-card-title>
+    <div fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="left"
+    fxLayoutGap="5%"
+    fxLayoutGap.xs="0">
+      <mat-form-field fxFlex="33%">
+          <mat-label>Completion date</mat-label>
+          <input matInput [matDatepicker]="picker2" formControlName="punchingDate" placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix [for]="picker2">
+            <mat-icon matDatepickerToggleIcon>date_range</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+      
+      <mat-form-field fxFlex="33%">
+          <mat-select formControlName="punchingStatus" placeholder="Change Status">
+            <mat-option value="Running">Running</mat-option>
+            <mat-option value="Completed">Completed</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field fxFlex="33%">
+            <input matInput formControlName="punchingDelayReason" placeholder="Reason for Delay">
+        </mat-form-field>
+    </div>
+  </mat-card>
+  <mat-card>
+    <mat-card-title>UV</mat-card-title>
+    <div fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="left"
+    fxLayoutGap="5%"
+    fxLayoutGap.xs="0">
+      <mat-form-field fxFlex="25%">
+        <mat-select formControlName="uvType" placeholder="Select type of UV">
+            <mat-option value="TypeA">TypeA</mat-option>
+            <mat-option value="TypeB">TypeB</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field fxFlex="25%">
+          <mat-label>Completion date</mat-label>
+          <input matInput [matDatepicker]="picker3" formControlName="uvDate" placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix [for]="picker3">
+            <mat-icon matDatepickerToggleIcon>date_range</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker3></mat-datepicker>
+      </mat-form-field>
+      
+      <mat-form-field fxFlex="25%">
+          <mat-select formControlName="uvStatus" placeholder="Change Status">
+            <mat-option value="Running">Running</mat-option>
+            <mat-option value="Completed">Completed</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field fxFlex="25%">
+            <input matInput formControlName="uvDelayReason" placeholder="Reason for Delay">
+        </mat-form-field>
+    </div>
+  </mat-card>
+  <mat-card>
+    <mat-card-title>Foiling</mat-card-title>
+    <div fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="left"
+    fxLayoutGap="5%"
+    fxLayoutGap.xs="0">
+      <mat-form-field fxFlex="25%">
+        <mat-select formControlName="foilingType" placeholder="Select type of Foiling">
+            <mat-option value="TypeA">TypeA</mat-option>
+            <mat-option value="TypeB">TypeB</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field fxFlex="25%">
+          <mat-label>Completion date</mat-label>
+          <input matInput [matDatepicker]="picker4" formControlName="foilingDate" placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix [for]="picker4">
+            <mat-icon matDatepickerToggleIcon>date_range</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker4></mat-datepicker>
+      </mat-form-field>
+      
+      <mat-form-field fxFlex="25%">
+          <mat-select formControlName="foilingStatus" placeholder="Change Status">
+            <mat-option value="Running">Running</mat-option>
+            <mat-option value="Completed">Completed</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field fxFlex="25%">
+            <input matInput formControlName="foilingDelayReason" placeholder="Reason for Delay">
+        </mat-form-field>
+    </div>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title>Folding</mat-card-title>
+    <div fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="left"
+    fxLayoutGap="5%"
+    fxLayoutGap.xs="0">
+      <mat-form-field fxFlex="33%">
+          <mat-label>Completion date</mat-label>
+          <input matInput [matDatepicker]="picker5" formControlName="foldingDate" placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix [for]="picker5">
+            <mat-icon matDatepickerToggleIcon>date_range</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker5></mat-datepicker>
+      </mat-form-field>
+      
+      <mat-form-field fxFlex="33%">
+          <mat-select formControlName="foldingStatus" placeholder="Change Status">
+            <mat-option value="Running">Running</mat-option>
+            <mat-option value="Completed">Completed</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field fxFlex="33%">
+            <input matInput formControlName="foldingDelayReason" placeholder="Reason for Delay">
+        </mat-form-field>
+    </div>
+  </mat-card>
+    <mat-card>
+      <mat-card-title>Pinning</mat-card-title>
+      <div fxLayout
+      fxLayout.xs="column"
+      fxLayoutAlign="left"
+      fxLayoutGap="5%"
+      fxLayoutGap.xs="0">
+        <mat-form-field fxFlex="33%">
+            <mat-label>Completion date</mat-label>
+            <input matInput [matDatepicker]="picker6" formControlName="pinningDate" placeholder="Choose a date">
+            <mat-datepicker-toggle matSuffix [for]="picker6">
+              <mat-icon matDatepickerToggleIcon>date_range</mat-icon>
+            </mat-datepicker-toggle>
+            <mat-datepicker #picker6></mat-datepicker>
+        </mat-form-field>
+        
+        <mat-form-field fxFlex="33%">
+            <mat-select formControlName="pinningStatus" placeholder="Change Status">
+              <mat-option value="Running">Running</mat-option>
+              <mat-option value="Completed">Completed</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field fxFlex="33%">
+              <input matInput formControlName="pinningDelayReason" placeholder="Reason for Delay">
+          </mat-form-field>
+      </div>
+    </mat-card>
+  <mat-card>
+    <mat-card-title>Stitching</mat-card-title>
+    <div fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="left"
+    fxLayoutGap="5%"
+    fxLayoutGap.xs="0">
+      <mat-form-field fxFlex="33%">
+          <mat-label>Completion date</mat-label>
+          <input matInput [matDatepicker]="picker7" formControlName="stitchingDate" placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix [for]="picker7">
+            <mat-icon matDatepickerToggleIcon>date_range</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker7></mat-datepicker>
+      </mat-form-field>
+      
+      <mat-form-field fxFlex="33%">
+          <mat-select formControlName="stitchingStatus" placeholder="Change Status">
+            <mat-option value="Running">Running</mat-option>
+            <mat-option value="Completed">Completed</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field fxFlex="33%">
+            <input matInput formControlName="stitchingDelayReason" placeholder="Reason for Delay">
+        </mat-form-field>
+    </div>
+  </mat-card>
+  <mat-card>
+    <mat-card-title>Binding</mat-card-title>
+    <div fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="left"
+    fxLayoutGap="5%"
+    fxLayoutGap.xs="0">
+      
+      <mat-form-field fxFlex="33%">
+          <mat-label>Completion date</mat-label>
+          <input matInput [matDatepicker]="picker8" formControlName="bindingDate" placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix [for]="picker8">
+            <mat-icon matDatepickerToggleIcon>date_range</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker8></mat-datepicker>
+      </mat-form-field>
+      
+      <mat-form-field fxFlex="33%">
+          <mat-select formControlName="bindingStatus" placeholder="Change Status">
+            <mat-option value="Running">Running</mat-option>
+            <mat-option value="Completed">Completed</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field fxFlex="33%">
+            <input matInput formControlName="bindingDelayReason" placeholder="Reason for Delay">
+        </mat-form-field>
+    </div>
+  </mat-card>
+  <mat-card>
+    <mat-card-title>Pasting</mat-card-title>
+    <div fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="left"
+    fxLayoutGap="5%"
+    fxLayoutGap.xs="0">
+      <mat-form-field fxFlex="33%">
+          <mat-label>Completion date</mat-label>
+          <input matInput [matDatepicker]="picker9" formControlName="pastingDate" placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix [for]="picker9">
+            <mat-icon matDatepickerToggleIcon>date_range</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker9></mat-datepicker>
+      </mat-form-field>
+      
+      <mat-form-field fxFlex="33%">
+          <mat-select formControlName="pastingStatus" placeholder="Change Status">
+            <mat-option value="Running">Running</mat-option>
+            <mat-option value="Completed">Completed</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field fxFlex="33%">
+            <input matInput formControlName="pastingDelayReason" placeholder="Reason for Delay">
+        </mat-form-field>
+    </div>
+  </mat-card>
+  <mat-card>
+    <mat-card-title>Cutting</mat-card-title>
+    <div fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="left"
+    fxLayoutGap="5%"
+    fxLayoutGap.xs="0">
+      <mat-form-field fxFlex="33%">
+          <mat-label>Completion date</mat-label>
+          <input matInput [matDatepicker]="picker10" formControlName="cuttingDate" placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix [for]="picker10">
+            <mat-icon matDatepickerToggleIcon>date_range</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker10></mat-datepicker>
+      </mat-form-field>
+      
+      <mat-form-field fxFlex="33%">
+          <mat-select formControlName="cuttingStatus" placeholder="Change Status">
+            <mat-option value="Running">Running</mat-option>
+            <mat-option value="Completed">Completed</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field fxFlex="33%">
+            <input matInput formControlName="cuttingDelayReason" placeholder="Reason for Delay">
+        </mat-form-field>
+    </div>
+  </mat-card>
+  <br>
+  <mat-card-actions>
+    <button mat-flat-button color="primary" type="submit" style="position: relative;left: 50%; transform: translateX(-50%);border-radius: 1.54em;">Submit</button>
+  </mat-card-actions>
+
+  </form>
+</mat-card>
