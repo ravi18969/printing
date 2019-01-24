@@ -44,7 +44,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 
 @NgModule({
   imports: [
-    MatListModule,
+  MatListModule,
   MatIconModule,
   MatButtonModule,
   MatCardModule,
@@ -80,7 +80,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   declarations: [AppComponent, DialogboxComponent],
   providers: [
     // ANGULAR MATERIAL SLIDER FIX
-    { provide: HAMMER_GESTURE_CONFIG, useClass: GestureConfig },
+    { provide: HAMMER_GESTURE_CONFIG, useClass: GestureConfig},
     PrintingService
   ],
   bootstrap: [AppComponent],

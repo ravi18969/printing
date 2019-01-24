@@ -12,7 +12,8 @@ export class FabricationComponent implements OnInit {
   myForm:FormGroup;
   jobIdLists=[];
   selectedJobId;
-
+  minDate = new Date();
+  
   constructor(private fb:FormBuilder, private router:Router, private PS: PrintingService) {
     this.PS.listProudcts()
     .subscribe((res) => {

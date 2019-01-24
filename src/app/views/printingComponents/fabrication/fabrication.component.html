@@ -28,7 +28,7 @@
       </mat-form-field>
       <mat-form-field fxFlex="25%">
           <mat-label>Completion date</mat-label>
-          <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="laminationDate">
+          <input matInput [min] ="minDate" [matDatepicker]="picker" placeholder="Choose a date" formControlName="laminationDate">
           <mat-datepicker-toggle matSuffix [for]="picker">
             <mat-icon matDatepickerToggleIcon>date_range</mat-icon>
           </mat-datepicker-toggle>
@@ -54,7 +54,7 @@
     fxLayoutGap.xs="0">
       <mat-form-field fxFlex="33%">
           <mat-label>Completion date</mat-label>
-          <input matInput [matDatepicker]="picker2" formControlName="punchingDate" placeholder="Choose a date">
+          <input matInput [min] ="minDate" [matDatepicker]="picker2" formControlName="punchingDate" placeholder="Choose a date">
           <mat-datepicker-toggle matSuffix [for]="picker2">
             <mat-icon matDatepickerToggleIcon>date_range</mat-icon>
           </mat-datepicker-toggle>
@@ -87,7 +87,7 @@
       </mat-form-field>
       <mat-form-field fxFlex="25%">
           <mat-label>Completion date</mat-label>
-          <input matInput [matDatepicker]="picker3" formControlName="uvDate" placeholder="Choose a date">
+          <input matInput [min] ="minDate" [matDatepicker]="picker3" formControlName="uvDate" placeholder="Choose a date">
           <mat-datepicker-toggle matSuffix [for]="picker3">
             <mat-icon matDatepickerToggleIcon>date_range</mat-icon>
           </mat-datepicker-toggle>
@@ -120,7 +120,7 @@
       </mat-form-field>
       <mat-form-field fxFlex="25%">
           <mat-label>Completion date</mat-label>
-          <input matInput [matDatepicker]="picker4" formControlName="foilingDate" placeholder="Choose a date">
+          <input matInput [min] ="minDate" [matDatepicker]="picker4" formControlName="foilingDate" placeholder="Choose a date">
           <mat-datepicker-toggle matSuffix [for]="picker4">
             <mat-icon matDatepickerToggleIcon>date_range</mat-icon>
           </mat-datepicker-toggle>
@@ -148,7 +148,7 @@
     fxLayoutGap.xs="0">
       <mat-form-field fxFlex="33%">
           <mat-label>Completion date</mat-label>
-          <input matInput [matDatepicker]="picker5" formControlName="foldingDate" placeholder="Choose a date">
+          <input matInput [min] ="minDate" [matDatepicker]="picker5" formControlName="foldingDate" placeholder="Choose a date">
           <mat-datepicker-toggle matSuffix [for]="picker5">
             <mat-icon matDatepickerToggleIcon>date_range</mat-icon>
           </mat-datepicker-toggle>
@@ -175,7 +175,7 @@
       fxLayoutGap.xs="0">
         <mat-form-field fxFlex="33%">
             <mat-label>Completion date</mat-label>
-            <input matInput [matDatepicker]="picker6" formControlName="pinningDate" placeholder="Choose a date">
+            <input matInput [min] ="minDate" [matDatepicker]="picker6" formControlName="pinningDate" placeholder="Choose a date">
             <mat-datepicker-toggle matSuffix [for]="picker6">
               <mat-icon matDatepickerToggleIcon>date_range</mat-icon>
             </mat-datepicker-toggle>
@@ -202,7 +202,7 @@
     fxLayoutGap.xs="0">
       <mat-form-field fxFlex="33%">
           <mat-label>Completion date</mat-label>
-          <input matInput [matDatepicker]="picker7" formControlName="stitchingDate" placeholder="Choose a date">
+          <input matInput [min] ="minDate" [matDatepicker]="picker7" formControlName="stitchingDate" placeholder="Choose a date">
           <mat-datepicker-toggle matSuffix [for]="picker7">
             <mat-icon matDatepickerToggleIcon>date_range</mat-icon>
           </mat-datepicker-toggle>
@@ -230,7 +230,7 @@
       
       <mat-form-field fxFlex="33%">
           <mat-label>Completion date</mat-label>
-          <input matInput [matDatepicker]="picker8" formControlName="bindingDate" placeholder="Choose a date">
+          <input matInput [min] ="minDate" [matDatepicker]="picker8" formControlName="bindingDate" placeholder="Choose a date">
           <mat-datepicker-toggle matSuffix [for]="picker8">
             <mat-icon matDatepickerToggleIcon>date_range</mat-icon>
           </mat-datepicker-toggle>
@@ -257,7 +257,7 @@
     fxLayoutGap.xs="0">
       <mat-form-field fxFlex="33%">
           <mat-label>Completion date</mat-label>
-          <input matInput [matDatepicker]="picker9" formControlName="pastingDate" placeholder="Choose a date">
+          <input matInput [min] ="minDate" [matDatepicker]="picker9" formControlName="pastingDate" placeholder="Choose a date">
           <mat-datepicker-toggle matSuffix [for]="picker9">
             <mat-icon matDatepickerToggleIcon>date_range</mat-icon>
           </mat-datepicker-toggle>
@@ -284,7 +284,7 @@
     fxLayoutGap.xs="0">
       <mat-form-field fxFlex="33%">
           <mat-label>Completion date</mat-label>
-          <input matInput [matDatepicker]="picker10" formControlName="cuttingDate" placeholder="Choose a date">
+          <input matInput [min] ="minDate" [matDatepicker]="picker10" formControlName="cuttingDate" placeholder="Choose a date">
           <mat-datepicker-toggle matSuffix [for]="picker10">
             <mat-icon matDatepickerToggleIcon>date_range</mat-icon>
           </mat-datepicker-toggle>

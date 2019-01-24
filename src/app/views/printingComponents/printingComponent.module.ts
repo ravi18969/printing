@@ -24,6 +24,7 @@ import {
   MatTableModule,
   MatPaginatorModule,
   MatSortModule,
+  MAT_DATE_LOCALE,
  } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
@@ -77,6 +78,11 @@ import { InventoryComponent } from './inventory/inventory.component';
       EditJobsComponent,
       InventoryComponent
    
-  ]
+  ],
+  providers: [
+    
+    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
+  
+  ],
 })
 export class PrintingModule { }

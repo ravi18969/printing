@@ -29,6 +29,9 @@ export class SigninComponent implements OnInit {
 
     this.submitButton.disabled = true;
     this.progressBar.mode = 'indeterminate';
+
+    // use this line of code to save token in localStorage
+    // localStorage.setItem('token', data.toString());
   }
 
 }

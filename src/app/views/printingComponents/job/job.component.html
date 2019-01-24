@@ -1,0 +1,107 @@
+<mat-card *ngIf="formStatus; else elseBlock">
+      
+  <form novalidate (ngSubmit)="onSubmit(myForm)" [formGroup]="myForm">
+    <div fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="center"
+    fxLayoutGap="5%"
+    fxLayoutGap.xs="0">
+    <mat-form-field fxFlex="50%" style="font-weight: bold;">
+        <mat-label >Job Id</mat-label>
+        <input matInput type="text" formControlName="jobId"  [value]="UniqueId" readonly>   
+    </mat-form-field>
+    <mat-form-field fxFlex="50%">
+        <mat-label>Vendor Name</mat-label>
+        <input matInput id="vendor" type="text" formControlName="vendor" placeholder="Enter vendor name" [errorStateMatcher]="matcher">   
+        <mat-error *ngIf="myForm.controls.vendor.invalid && (myForm.controls.vendor.dirty || myForm.controls.vendor.touched)"
+                >
+            <mat-error *ngIf="myForm.controls.vendor.errors.required">
+                Vendor is required.
+            </mat-error>
+            <mat-error  *ngIf="myForm.controls.vendor.errors.minlength">
+                    Vendor must be at least 4 characters long.
+            </mat-error>
+
+        </mat-error>
+    </mat-form-field>
+    </div>
+
+    <div fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="center"
+    fxLayoutGap="5%"
+    fxLayoutGap.xs="0">
+            
+        <mat-form-field fxFlex="50%">
+            <mat-label>Paper Size</mat-label>
+            <mat-select formControlName="paperSize" placeholder="Paper Size">
+            <mat-option *ngFor="let paperSize of paperSizes" [value]="paperSize">{{paperSize}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="myForm.controls.paperSize.invalid && (myForm.controls.paperSize.dirty || myForm.controls.paperSize.touched)">
+            <mat-error *ngIf="myForm.controls.paperSize.errors.required">
+                Please select paper type.
+            </mat-error>
+        </mat-error>
+        </mat-form-field>
+        <mat-form-field fxFlex="50%">
+            <mat-label>GSM</mat-label>
+            <mat-select formControlName="gsm" placeholder="Paper GSM">
+            <mat-option *ngFor="let gsm of gsms" [value]="gsm">{{gsm}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="myForm.controls.gsm.invalid && (myForm.controls.gsm.dirty || myForm.controls.gsm.touched)">
+            <mat-error *ngIf="myForm.controls.gsm.errors.required">
+                Please select paper GSM.
+            </mat-error>
+        </mat-error>
+        </mat-form-field>
+    </div>
+
+    <div fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="center"
+    fxLayoutGap="5%"
+    fxLayoutGap.xs="0">
+        <mat-form-field fxFlex="50%">
+            <mat-label>Plates</mat-label>
+            <input matInput type="number" formControlName="plates" placeholder="Enter number of plates">
+        <mat-error *ngIf="myForm.controls.plates.invalid && (myForm.controls.plates.dirty || myForm.controls.plates.touched)">
+            <mat-error *ngIf="myForm.controls.plates.errors.required">
+                Please enter no of papers required
+            </mat-error>
+        </mat-error>
+        </mat-form-field>
+        <mat-form-field fxFlex="50%">
+            <mat-label>Expected Delivery</mat-label>
+            <input matInput [min] ="minDate" [matDatepicker]="picker" formControlName="expectedDeliveryDate" placeholder="Choose a date" readonly>
+            <mat-datepicker-toggle matSuffix [for]="picker">
+              <mat-icon matDatepickerToggleIcon>date_range</mat-icon>
+            </mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </div>
+    
+    <div fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="center"
+    fxLayoutGap="5%"
+    fxLayoutGap.xs="0">
+        <mat-form-field fxFlex="100%">
+            <mat-label>Description</mat-label>
+            <textarea matInput type="text" formControlName="extras" placeholder="Description" rows="5"></textarea>
+            <mat-error *ngIf="myForm.controls.extras.invalid && (myForm.controls.extras.dirty || myForm.controls.extras.touched)">
+                <mat-error *ngIf="myForm.controls.extras.errors.required">
+                    Please enter description.
+                </mat-error>
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <br>
+    <button mat-flat-button color="primary" [disabled]="myForm.invalid" type="submit">Next</button>
+  </form>
+</mat-card>
+
+<ng-template #elseBlock>
+    <mat-card>
+    <h3>Your Form is succesfully submitted. Please go to next step</h3>
+    </mat-card>
+</ng-template>

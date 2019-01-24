@@ -21,6 +21,9 @@ import {
   MatSelectModule,
   MatDatepickerModule,
   MatNativeDateModule,
+  MatTableModule,
+  MatPaginatorModule,
+  MatSortModule,
  } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
@@ -64,6 +67,9 @@ import { EditJobComponent } from './edit-job/edit-job.component';
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
     RouterModule.forChild(OthersRoutes)
   ],
   declarations: [
