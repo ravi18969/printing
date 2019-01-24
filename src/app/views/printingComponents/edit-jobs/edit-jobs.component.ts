@@ -35,8 +35,8 @@ export class EditJobsComponent implements OnInit {
       paperType: ['', [Validators.required]],
       printMode: ['', Validators.required],
       description:['', Validators.required],
-      gsm: ['', Validators.required],
-      plates: ['', Validators.required],
+      gsm: ["", Validators.required],
+      plates: ["", Validators.required],
       rimWeight:["", Validators.required],
       unitPrice: ["", Validators.required],
       plateType:["", Validators.required],
@@ -61,22 +61,12 @@ export class EditJobsComponent implements OnInit {
       this.dbProductId = item['_id'];
       console.log(this.dbProductId);
       console.log(item);
-      this.myForm.setValue({
-        paperType: item['paperType'],
-        printMode: item['printMode'],
-        description:item['description'],
-        // workingStatus:item['workingStatus'],
-        gsm: item['gsm'],
-        plates: item['plates'],
-        rimWeight:item['rimWeight'],
-        unitPrice: item['unitPrice'],
-        plateType:item['plateType'],
-        specialPaper:item['specialPaper'],
-        expectedDeliveryDate:item['expectedDeliveryDate'],
-        vendor: item['vendor'],
-        paperSize: item['paperSize']
-
-      });
+      delete item['created'];
+      delete item['workingStatus'];
+      delete item['_id'];
+      delete item['jobId'];
+      delete item['__v'];
+      this.myForm.setValue(item);
     });
   }
 

@@ -107,7 +107,7 @@ export class NavigationService {
       type: 'link',
       tooltip: 'Chat',
       icon: 'layers',
-      state: 'dashboard'
+      state: 'job/list-jobs'
     },
   ]
 

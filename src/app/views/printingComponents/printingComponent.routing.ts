@@ -5,6 +5,7 @@ import { FabricationComponent } from './fabrication/fabrication.component';
 import { EditJobsComponent } from './edit-jobs/edit-jobs.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { AuthGuard } from '../../shared/services/auth/auth.guard';
+import { ListJobsComponent } from './list-jobs/list-jobs.component';
 
 
 export const PrintingRoutes: Routes = [
@@ -41,6 +42,11 @@ export const PrintingRoutes: Routes = [
   {
     path: 'inventory',
     component: InventoryComponent,
+    data: { title: 'Fabrication', breadcrumb: 'BLANK' }
+  },
+  {
+    path: 'list-jobs',
+    component: ListJobsComponent,
     data: { title: 'Fabrication', breadcrumb: 'BLANK' }
   },
 ];

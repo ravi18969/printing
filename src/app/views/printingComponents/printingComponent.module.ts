@@ -37,6 +37,7 @@ import { PaperSelectionComponent } from './paper-selection/paper-selection.compo
 import { FabricationComponent } from './fabrication/fabrication.component';
 import { EditJobsComponent } from './edit-jobs/edit-jobs.component';
 import { InventoryComponent } from './inventory/inventory.component';
+import { ListJobsComponent } from './list-jobs/list-jobs.component';
 
 @NgModule({
   imports: [
@@ -76,7 +77,8 @@ import { InventoryComponent } from './inventory/inventory.component';
       PaperSelectionComponent,
       FabricationComponent,
       EditJobsComponent,
-      InventoryComponent
+      InventoryComponent,
+      ListJobsComponent
    
   ],
   providers: [

@@ -75,16 +75,16 @@ button {
       background: rgb(67, 196, 67);
   } */
 
-  table {
+table {
     width: 100%;
     color: white;
-  }
+}
 
 td:nth-child(1) {
     font-size: 1em;
     color: white;
     font-weight: bold;
-    background-color: #6a5082;
+    background-color: #a29da7;
 }
 
 td.mat-cell:first-child {
@@ -93,7 +93,7 @@ td.mat-cell:first-child {
 
 .mat-header-cell {
     text-align: center;
-    background-color: #6a5082;
+    background-color: #6a8280;
     color: white;
     font-size: 1em;
 }
@@ -103,21 +103,27 @@ td.mat-cell:first-child {
     border: 1px solid white;
 }
 
-.Completed {
-    background: #19ad19;
+.status {
+    background: #a29da7;
+    border: 1px solid white;
+
+}
+
+.statusCompleted {
+    background: #5ce0af;
     border: 1px solid white;
     text-align: center;
 
 }
 
-.Running {
-    background: #de9387;
+.statusRunning {
+    background: #93aeea;
     border: 1px solid white;
     text-align: center;
 
 }
 
-td:empty {
+.mat-cell:empty {
     background: grey;
     border: 1px solid white;
 }

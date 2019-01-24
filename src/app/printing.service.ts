@@ -17,7 +17,7 @@ export class PrintingService {
   createNewRequirement(productDetails) {
     console.log("product that is coming from make papers:", productDetails);
     var producToSave = {
-      jobId: productDetails.jobId,
+    jobId: productDetails.jobId,
 		vendor:productDetails.vendor,
 		paperType:productDetails.papers.paperType,
 		paperSize:productDetails.paperSize,
@@ -31,13 +31,16 @@ export class PrintingService {
 		description:productDetails.extras,
 		expectedDeliveryDate:productDetails.expectedDeliveryDate
     }
-    // debugger
      return this.http.post(`${this.uri}/create-requirement`, producToSave);
   }
 
   getProuduct(id) {
     console.log("Product Id", id);
     return this.http.get(`${this.uri}/listProduct/${id}`);
+  }
+
+  getAllProuducts() {
+    return this.http.get(`${this.uri}/listAllProducts`);
   }
 
   updatePrudct(id, updatedProduct) {
