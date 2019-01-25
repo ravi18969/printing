@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatProgressBar, MatButton } from '@angular/material';
 import { Validators, FormGroup, FormControl } from '@angular/forms';
+import { AuthService } from 'app/shared/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signin',
@@ -13,7 +15,7 @@ export class SigninComponent implements OnInit {
 
   signinForm: FormGroup;
 
-  constructor() { }
+  constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit() {
     this.signinForm = new FormGroup({
@@ -29,9 +31,14 @@ export class SigninComponent implements OnInit {
 
     this.submitButton.disabled = true;
     this.progressBar.mode = 'indeterminate';
-
-    // use this line of code to save token in localStorage
-    // localStorage.setItem('token', data.toString());
+    this.auth.loginUser(signinData)
+    .subscribe(
+      res => {
+        localStorage.setItem('token', res.message.token)
+        this.router.navigate(['/'])
+      },
+      err => console.log(err)
+    ) 
   }
 
 }
