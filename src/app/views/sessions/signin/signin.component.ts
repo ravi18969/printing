@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatProgressBar, MatButton } from '@angular/material';
+import { MatProgressBar, MatButton, MatSnackBarModule, MatSnackBar } from '@angular/material';
 import { Validators, FormGroup, FormControl } from '@angular/forms';
 import { AuthService } from 'app/shared/services/auth.service';
 import { Router } from '@angular/router';
@@ -14,12 +14,12 @@ export class SigninComponent implements OnInit {
   @ViewChild(MatButton) submitButton: MatButton;
 
   signinForm: FormGroup;
-
-  constructor(private auth: AuthService, private router: Router) { }
+  snackBarRef;
+  constructor(private auth: AuthService, private router: Router, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.signinForm = new FormGroup({
-      username: new FormControl('', Validators.required),
+      email: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
       rememberMe: new FormControl(false)
     })
@@ -34,10 +34,20 @@ export class SigninComponent implements OnInit {
     this.auth.loginUser(signinData)
     .subscribe(
       res => {
-        localStorage.setItem('token', res.message.token)
+        console.log(res);
+        localStorage.setItem('token', res.token)
         this.router.navigate(['/'])
       },
-      err => console.log(err)
+      err =>{
+          let snackBarRef = this.snackBar.open("Invalid Email and Password", 'Close',{
+            horizontalPosition:"center",
+            verticalPosition:"top"
+          });
+          console.log(err);
+          this.router.navigate(["/"]);
+          this.progressBar.mode = "determinate";
+          // this.signinForm.reset();  
+      }
     ) 
   }
 

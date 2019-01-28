@@ -160,7 +160,15 @@
       fxLayoutAlign="center"
       fxLayoutGap="5%"
       fxLayoutGap.xs="0">
-        <mat-form-field fxFlex="100%">
+      <mat-form-field fxFlex="50%">
+          <mat-label>Starting Date</mat-label>
+          <input matInput [min] ="minDate" [matDatepicker]="picker1" formControlName="startDate" placeholder="Choose a date" readonly>
+          <mat-datepicker-toggle matSuffix [for]="picker1">
+            <mat-icon matDatepickerToggleIcon>date_range</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+        <mat-form-field fxFlex="50%">
             <mat-label>Description</mat-label>
             <textarea matInput type="text" formControlName="description" placeholder="Description" rows="5"></textarea>
         </mat-form-field>

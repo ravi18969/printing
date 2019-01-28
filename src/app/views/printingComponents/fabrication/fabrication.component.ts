@@ -12,10 +12,11 @@ export class FabricationComponent implements OnInit {
   myForm:FormGroup;
   jobIdLists=[];
   selectedJobId;
+  vendorName = null;
   minDate = new Date();
   
   constructor(private fb:FormBuilder, private router:Router, private PS: PrintingService) {
-    this.PS.listProudcts()
+    this.PS.getAllProuducts()
     .subscribe((res) => {
       Object.keys(res).forEach(key => {
         this.jobIdLists.push(res[key].jobId);     // the name of the current key.   // the value of the current key.
@@ -73,6 +74,8 @@ export class FabricationComponent implements OnInit {
       delete res['__v'];
       delete res['_id'];
       delete res['deliveryDate'];
+      this.vendorName = res['vendor'];
+      delete res['vendor'];
       this.myForm.setValue(res);
     });
   }
@@ -84,6 +87,7 @@ export class FabricationComponent implements OnInit {
     this.PS.saveFabrication(fabricationDetails)
     .subscribe( (res) => {
       this.myForm.reset();
+      this.vendorName= null;
       console.log(res)
     });
 

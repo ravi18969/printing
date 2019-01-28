@@ -1,6 +1,10 @@
 <mat-card>
-  <mat-card-title>Job Lists</mat-card-title>
-  <mat-form-field>
+  <!-- <mat-card-title>Job Lists</mat-card-title> -->
+  <mat-card-title style="font-size: 2.2em !important;
+  position: relative;
+  left: 3%;
+  color: slategray;">Jobs</mat-card-title>
+  <mat-form-field style="position: relative;left: 3%;">
     <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
   </mat-form-field>
   <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8" style="margin: 10px;">
@@ -77,10 +81,10 @@
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
       <td mat-cell *matCellDef="let product"> 
-        <button mat-flat-button style="background: #6276e2">Edit</button>
+        <!-- <button mat-flat-button style="background: #6276e2">Edit</button> -->
         <!-- <span>&nbsp;</span> -->
-        <br>
-        <button mat-flat-button style="background: #ec4d45">Delete</button>
+        <!-- <br> -->
+        <button mat-flat-button style="background: #ec4d45" (click)="removeProduct(product.jobId, product.paperType, product.plates)">Delete</button>
       </td>
     </ng-container>
 

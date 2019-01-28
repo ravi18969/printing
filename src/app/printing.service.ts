@@ -8,30 +8,16 @@ export class PrintingService {
 
   uri = 'http://localhost:8000/api/product';
   uri2 = 'http://localhost:8000/api/fabrication';
+  uri3 = 'http://localhost:8000/api/papers';
+
   
   constructor(private http: HttpClient) { }
-  listProudcts() {
-    return this.http.get(`${this.uri}/listProducts`);
-  }
+  // listProudcts() {
+  //   return this.http.get(`${this.uri}/listProducts`);
+  // }
 
-  createNewRequirement(productDetails) {
-    console.log("product that is coming from make papers:", productDetails);
-    var producToSave = {
-    jobId: productDetails.jobId,
-		vendor:productDetails.vendor,
-		paperType:productDetails.papers.paperType,
-		paperSize:productDetails.paperSize,
-		gsm:productDetails.gsm,
-		plates:productDetails.plates,
-		plateType:productDetails.papers.plateType,
-		rimWeight:productDetails.papers.rimWeight,
-		unitPrice:productDetails.papers.unitPrice,
-		specialPaper:productDetails.papers.specialPaper,
-		printMode:productDetails.papers.printMode,
-		description:productDetails.extras,
-		expectedDeliveryDate:productDetails.expectedDeliveryDate
-    }
-     return this.http.post(`${this.uri}/create-requirement`, producToSave);
+  createNewRequirement(product) {
+     return this.http.post(`${this.uri}/create-requirement`, product);
   }
 
   getProuduct(id) {
@@ -49,6 +35,15 @@ export class PrintingService {
     return this.http.post(`${this.uri}/updateProduct/${id}`, updatedProduct);
   }
 
+  removeJob(id, paperType, count) {
+    let product = {
+      paper:paperType,
+      count:count
+    }
+    return this.http.post(`${this.uri}/remove/${id}`, product);
+
+  }
+
 
   saveFabrication(data) {
      return this.http.post(`${this.uri2}/saveFabrication`, data);
@@ -63,5 +58,14 @@ export class PrintingService {
     return this.http.get(`${this.uri2}/getfabrications`);
   }
 
+  getPapers() {
+    return this.http.get(`${this.uri3}/getPapersData`);
+  }
+
+  upadtePaper(quantity, id) {
+    return this.http.post(`${this.uri3}/updateQuantity/${id}`, quantity)
+  }
+
+  
 
 }

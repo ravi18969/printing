@@ -21,7 +21,7 @@ export class EditJobsComponent implements OnInit {
   dbProductId;
 
   constructor(private fb: FormBuilder, private PS: PrintingService, private router: Router) { 
-    this.PS.listProudcts()
+    this.PS.getAllProuducts()
     .subscribe((res) => {
       Object.keys(res).forEach(key => {
         this.jobIdLists.push(res[key].jobId);     // the name of the current key.   // the value of the current key.
@@ -40,12 +40,14 @@ export class EditJobsComponent implements OnInit {
       rimWeight:["", Validators.required],
       unitPrice: ["", Validators.required],
       plateType:["", Validators.required],
+      startDate:["", Validators.required],
       specialPaper:[""],
       expectedDeliveryDate:['', Validators.required],
       vendor: ['', [Validators.required, Validators.minLength(4)]],
       paperSize: ['', [Validators.required]]
     });
   }
+
   selectChangeHandler(selected) {
     // console.log(selected.value);
     if(selected.value == "Special paper") 
@@ -59,8 +61,6 @@ export class EditJobsComponent implements OnInit {
     this.PS.getProuduct(this.selectedJobId)
     .subscribe(item => {
       this.dbProductId = item['_id'];
-      console.log(this.dbProductId);
-      console.log(item);
       delete item['created'];
       delete item['workingStatus'];
       delete item['_id'];
@@ -76,9 +76,6 @@ export class EditJobsComponent implements OnInit {
     .subscribe((res) => {
       console.log(res);
       this.router.navigate(['/']);
-      // this.myForm.reset();
-      // this.myForm.controls[''];
-      // this.myForm.clearValidators();
     })
   }
 

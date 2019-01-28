@@ -2,6 +2,7 @@ import { Component, OnInit, EventEmitter, Input, Output, Renderer2 } from '@angu
 import { ThemeService } from '../../services/theme.service';
 import { LayoutService } from '../../services/layout.service';
 import { TranslateService } from '@ngx-translate/core';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-header-side',
@@ -23,7 +24,8 @@ export class HeaderSideComponent implements OnInit {
     private themeService: ThemeService,
     private layout: LayoutService,
     public translate: TranslateService,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private auth: AuthService,
   ) {}
   ngOnInit() {
     this.egretThemes = this.themeService.egretThemes;
@@ -64,5 +66,10 @@ export class HeaderSideComponent implements OnInit {
       sidebarStyle: 'compact'
     }, {transitionClass: true})
 
+  }
+
+  logout() {
+    // confirm("hi");
+    this.auth.logoutUser();
   }
 }

@@ -19,18 +19,31 @@ export class JobComponent implements OnInit {
   UniqueId = Date.now();
   formStatus:Boolean = true;
 
+  selectedProduct;
+  paperTypes = ["Maplitho", "Hard Paper", "Art Card", "Albaster","Special paper"];
+  // printModes = ["Type A Machine", "Type B Machine"];
+  // formStatus:Boolean = true;
+  specialPaper:Boolean = false;
+
   constructor(private fb: FormBuilder, private PS: PrintingService, private router: Router) { }
   minDate = new Date();
   ngOnInit() {
     console.log(this.UniqueId);
     this.myForm = this.fb.group({
       jobId:[this.UniqueId],
-      extras:["", Validators.required],
+      description:["", Validators.required],
       gsm: ['', Validators.required],
       plates: ['', Validators.required],
+      startDate:['', Validators.required],
       expectedDeliveryDate:['', Validators.required],
       vendor: ['', [Validators.required, Validators.minLength(4)]],
-      paperSize: ['', [Validators.required]]
+      paperSize: ['', [Validators.required]],
+      paperType: ['', [Validators.required]],
+      rimWeight:["", Validators.required],
+      unitPrice: ["", Validators.required],
+      plateType:["", Validators.required],
+      specialPaper:[""],
+      printMode: ['', Validators.required],
     });
   }
 
@@ -38,11 +51,23 @@ export class JobComponent implements OnInit {
     
     const product = data.value;
     console.log("products", product);
-    sessionStorage.setItem("products", JSON.stringify(product));
-    this.router.navigate(['/job/select-papers']);
+    this.PS.createNewRequirement(product)
+    .subscribe(res => {
+      console.log(res);
+      this.router.navigate(['/']);
+    })
+    // sessionStorage.setItem("products", JSON.stringify(product));
+    // this.router.navigate(['/job/select-papers']);
     // this.PS.createNewRequirement(product).subscribe((res) => {
     //   console.log(res);
     // });
+  }
+
+  selectChangeHandler(selected) {
+    // console.log(selected.value);
+    if(selected.value == "Special paper") 
+    this.specialPaper = !this.specialPaper;
+    else this.specialPaper = false;
   }
 
   

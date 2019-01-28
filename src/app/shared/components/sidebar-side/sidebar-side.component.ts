@@ -3,6 +3,7 @@ import { NavigationService } from "../../../shared/services/navigation.service";
 import { ThemeService } from '../../services/theme.service';
 import { Subscription } from "rxjs";
 import PerfectScrollbar from 'perfect-scrollbar';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-sidebar-side',
@@ -17,6 +18,7 @@ export class SidebarSideComponent implements OnInit, OnDestroy, AfterViewInit {
   constructor(
     private navService: NavigationService,
     public themeService: ThemeService,
+    private auth:AuthService
   ) { }
 
   ngOnInit() {
@@ -41,6 +43,10 @@ export class SidebarSideComponent implements OnInit, OnDestroy, AfterViewInit {
     if(this.menuItemsSub) {
       this.menuItemsSub.unsubscribe()
     }
+  }
+
+  logout() {
+    this.auth.logoutUser();
   }
 
 }

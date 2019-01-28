@@ -24,6 +24,7 @@ import {
   MatTableModule,
   MatPaginatorModule,
   MatSortModule,
+  MatExpansionModule,
   MAT_DATE_LOCALE,
  } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -70,6 +71,7 @@ import { ListJobsComponent } from './list-jobs/list-jobs.component';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatExpansionModule,
     RouterModule.forChild(PrintingRoutes)
   ],
   declarations: [

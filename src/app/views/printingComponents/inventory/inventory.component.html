@@ -1,1 +1,58 @@
-<p>Inventory</p>
+
+<mat-card style="margin-top:10%;width: 70%;position: relative;left: 50%; transform: translateX(-50%)">
+    <!-- <mat-card-header>Paper Details</mat-card-header> -->
+    <mat-card-title style="text-align: center; color: slategray; font-size: 2.2rem !important">Paper details</mat-card-title>
+    <br>
+    <mat-accordion *ngFor="let paperType of papers">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title style="font-size: 1.2rem;">
+              {{paperType.paper}}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+      
+          <table>
+              <th>Total Quantity</th>
+              <th>Total Orders</th>
+              <th>Required</th>
+              <th>Action</th>
+              <tbody>
+                  <td>{{paperType.quantity}}</td>
+                  <td>{{paperType.totalOrder}}</td>
+                  <td style="background:coral" *ngIf="paperType.totalOrder - paperType.quantity > 0; else firstBlock">{{paperType.totalOrder - paperType.quantity}}</td>
+                  <td>
+                  <ng-template #firstBlock>
+                    <td>0</td>
+                  </ng-template>
+                      <button mat-flat-button color="warn" (click)="changeEditState(paperType._id)">Edit</button>
+                  </td>
+              </tbody>
+          </table>
+          <br>
+          <div *ngIf="paperType._id == editState">
+              <form (ngSubmit)="onSubmit(myForm)" [formGroup]="myForm">
+                <mat-form-field style="width: 40%;">
+                    <input matInput type="number" formControlName="quantity" placeholder="Enter quantity">
+                </mat-form-field>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <button mat-flat-button type="submit">Save</button>
+              </form>
+          </div>
+            
+        </mat-expansion-panel>
+        <!-- <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Self aware panel
+            </mat-panel-title>
+            <mat-panel-description>
+              Currently I am {{panelOpenState ? 'open' : 'closed'}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p>I'm visible because I am open</p>
+        </mat-expansion-panel> -->
+      </mat-accordion>
+</mat-card>
+
+  

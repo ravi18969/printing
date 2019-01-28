@@ -1,5 +1,7 @@
+
+<h1 style="font-size: 2.2em !important;position: relative;left: 5%;color:slategray">Create New Job</h1>
+
 <mat-card *ngIf="formStatus; else elseBlock">
-      
   <form novalidate (ngSubmit)="onSubmit(myForm)" [formGroup]="myForm">
     <div fxLayout
     fxLayout.xs="column"
@@ -62,7 +64,7 @@
     fxLayoutGap="5%"
     fxLayoutGap.xs="0">
         <mat-form-field fxFlex="50%">
-            <mat-label>Plates</mat-label>
+            <mat-label>No of Plates</mat-label>
             <input matInput type="number" formControlName="plates" placeholder="Enter number of plates">
         <mat-error *ngIf="myForm.controls.plates.invalid && (myForm.controls.plates.dirty || myForm.controls.plates.touched)">
             <mat-error *ngIf="myForm.controls.plates.errors.required">
@@ -71,12 +73,18 @@
         </mat-error>
         </mat-form-field>
         <mat-form-field fxFlex="50%">
-            <mat-label>Expected Delivery</mat-label>
-            <input matInput [min] ="minDate" [matDatepicker]="picker" formControlName="expectedDeliveryDate" placeholder="Choose a date" readonly>
-            <mat-datepicker-toggle matSuffix [for]="picker">
-              <mat-icon matDatepickerToggleIcon>date_range</mat-icon>
-            </mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
+            <mat-label>Paper Type</mat-label>
+            <mat-select formControlName="paperType" placeholder="Paper Type" (selectionChange)="selectChangeHandler($event)">
+                <mat-option *ngFor="let paperType of paperTypes" [value]="paperType">{{paperType}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="myForm.controls.paperType.invalid && (myForm.controls.paperType.dirty || myForm.controls.paperType.touched)">
+                <mat-error *ngIf="myForm.controls.paperType.errors.required">
+                    Please select paper type.
+                </mat-error>
+            </mat-error>
+            </mat-form-field>
+            <mat-form-field *ngIf="specialPaper" fxFlex="">
+            <input matInput type="text" name="specialPaper" formControlName="specialPaper" placeholder="Enter paper type">       
         </mat-form-field>
     </div>
     
@@ -85,18 +93,99 @@
     fxLayoutAlign="center"
     fxLayoutGap="5%"
     fxLayoutGap.xs="0">
+        <mat-form-field fxFlex="50%">
+            <mat-label>Starting Date</mat-label>
+            <input matInput [min] ="minDate" [matDatepicker]="picker1" formControlName="startDate" placeholder="Choose a date" readonly>
+            <mat-datepicker-toggle matSuffix [for]="picker1">
+              <mat-icon matDatepickerToggleIcon>date_range</mat-icon>
+            </mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field fxFlex="50%">
+            <mat-label>Expected Delivery</mat-label>
+            <input matInput [min] ="minDate" [matDatepicker]="picker" formControlName="expectedDeliveryDate" placeholder="Choose a date" readonly>
+            <mat-datepicker-toggle matSuffix [for]="picker">
+                <mat-icon matDatepickerToggleIcon>date_range</mat-icon>
+            </mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </div>
+
+    <div fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="center"
+    fxLayoutGap="5%"
+    fxLayoutGap.xs="0">
+        <mat-form-field fxFlex="50%">
+        <mat-label>Weight in RIM</mat-label>
+        <input matInput type="number" formControlName="rimWeight" placeholder="Enter weight in RIM">   
+        <mat-error *ngIf="myForm.controls.rimWeight.invalid && (myForm.controls.rimWeight.dirty || myForm.controls.rimWeight.touched)">
+            <mat-error *ngIf="myForm.controls.rimWeight.errors.required">
+            Rim weight is required.
+            </mat-error>
+        </mat-error>
+        </mat-form-field>
+        <mat-form-field fxFlex="50%">
+        <mat-label>Unit Price</mat-label>
+        <input matInput type="number" formControlName="unitPrice" placeholder="Enter Unit price">   
+        <mat-error *ngIf="myForm.controls.unitPrice.invalid && (myForm.controls.unitPrice.dirty || myForm.controls.unitPrice.touched)">
+            <mat-error *ngIf="myForm.controls.unitPrice.errors.required">
+            Unit price is required.
+            </mat-error>
+        </mat-error>
+        </mat-form-field>
+    </div>
+        
+    <div fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="center"
+    fxLayoutGap="5%"
+    fxLayoutGap.xs="0">
+        <mat-form-field fxFlex="50%">
+        <mat-label>Plate Type</mat-label>
+        <mat-select formControlName="plateType" placeholder="Select Plate type">
+            <mat-option value="thermal">Thermal</mat-option>
+            <mat-option value="velvet">Velvet</mat-option>
+        </mat-select>
+        <mat-error *ngIf="myForm.controls.plateType.invalid && (myForm.controls.plateType.dirty || myForm.controls.plateType.touched)">
+            <mat-error *ngIf="myForm.controls.plateType.errors.required">
+            Please select plate type.
+            </mat-error>
+        </mat-error>
+        </mat-form-field>
+
+        <mat-form-field fxFlex="50%">
+            <mat-label>Print Type</mat-label>
+            <mat-select formControlName="printMode" placeholder="Print Mode" >
+            <mat-option *ngFor="let printMode of printModes" [value]="printMode">{{printMode}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="myForm.controls.printMode.invalid && (myForm.controls.printMode.dirty || myForm.controls.printMode.touched)">
+                <mat-error *ngIf="myForm.controls.printMode.errors.required">
+                Please select print mode.
+                </mat-error>
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="center"
+    fxLayoutGap="5%"
+    fxLayoutGap.xs="0">
         <mat-form-field fxFlex="100%">
             <mat-label>Description</mat-label>
-            <textarea matInput type="text" formControlName="extras" placeholder="Description" rows="5"></textarea>
-            <mat-error *ngIf="myForm.controls.extras.invalid && (myForm.controls.extras.dirty || myForm.controls.extras.touched)">
-                <mat-error *ngIf="myForm.controls.extras.errors.required">
+            <textarea matInput type="text" formControlName="description" placeholder="Description" rows="5"></textarea>
+            <mat-error *ngIf="myForm.controls.description.invalid && (myForm.controls.description.dirty || myForm.controls.description.touched)">
+                <mat-error *ngIf="myForm.controls.description.errors.required">
                     Please enter description.
                 </mat-error>
             </mat-error>
         </mat-form-field>
     </div>
     <br>
-    <button mat-flat-button color="primary" [disabled]="myForm.invalid" type="submit">Next</button>
+    
+    <button mat-flat-button color="primary" [disabled]="myForm.invalid" type="submit">Submit</button>
+    
+    <!-- <button mat-flat-button color="primary" [disabled]="myForm.invalid" type="submit">Next</button> -->
   </form>
 </mat-card>
 

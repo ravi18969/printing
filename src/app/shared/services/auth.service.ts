@@ -10,7 +10,7 @@ export class AuthService {
   uri = 'http://localhost:8000/api/auth';
 
   constructor(private http: HttpClient,
-    private _router: Router) { }
+    private router: Router) { }
 
     // registerUser(user) {
     //   return this.http.post<any>(this.uri, user)
@@ -22,7 +22,7 @@ export class AuthService {
   
     logoutUser() {
       localStorage.removeItem('token')
-      this._router.navigate(['/events'])
+      this.router.navigate(['/sessions/signin'])
     }
   
     getToken() {

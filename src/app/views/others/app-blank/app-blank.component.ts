@@ -18,7 +18,7 @@ export class AppBlankComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private PS: PrintingService) {
-    this.displayedColumns = ['jobId', 'deliveryDate', 'Lamination', 'Punching', 'UV',
+    this.displayedColumns = ['jobId', 'vendor', 'deliveryDate', 'Lamination', 'Punching', 'UV',
       'Foiling', 'Folding', 'Pinning', 'Stitching', 'Binding', 'Pasting', 'Cutting'];
   }
 

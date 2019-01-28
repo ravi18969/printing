@@ -37,4 +37,21 @@ export class ListJobsComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  removeProduct(id, paperType, count) {
+    console.log(id, paperType, count);
+    this.PS.removeJob(id, paperType, count)
+    .subscribe(res => {
+      console.log(res);
+      this.PS.getAllProuducts().subscribe(result => {
+        if(!result) {
+          return;
+        }
+        this.dataSource = new MatTableDataSource(<any> result);
+        this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator;
+  
+      });
+    })
+  }
+
 }

@@ -54,14 +54,14 @@ export class NavigationService {
     // },
     {
       name: 'New Job',
-      type: 'dropDown',
-      tooltip: 'Chat',
+      type: 'link',
+      tooltip: 'link',
       icon: 'build',
-      state: 'dashboard',
-      sub: [
-        { name: 'Create', icon: 'settings', state: 'job/create-job' },
-        { name: 'Papers', icon: 'line_weight', state: 'job/select-papers' },
-      ]
+      state: 'job/create-job',
+      // sub: [
+      //   { name: 'Create', icon: 'settings', state: 'job/create-job' },
+      //   { name: 'Papers', icon: 'line_weight', state: 'job/select-papers' },
+      // ]
     },
     {
       name: 'Edit Job',
@@ -103,7 +103,7 @@ export class NavigationService {
       state: 'job/inventory'
     },
     {
-      name: 'List items',
+      name: 'List Jobs',
       type: 'link',
       tooltip: 'Chat',
       icon: 'layers',

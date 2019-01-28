@@ -17,18 +17,18 @@ export const PrintingRoutes: Routes = [
       data: { title: 'Create Job', breadcrumb: 'BLANK' }
     }]
   },
-  {
-    path: '',
-    children: [{
-      path: 'select-papers',
-      canActivateChild:[AuthGuard],
-      component: PaperSelectionComponent,
-      data: { title: 'Create Job', breadcrumb: 'BLANK' }
-    }]
-    // path: 'select-papers',    
-    // component: PaperSelectionComponent,
-    // data: { title: 'Select Papers', breadcrumb: 'BLANK' }
-  },
+  // {
+  //   path: '',
+  //   children: [{
+  //     path: 'select-papers',
+  //     canActivateChild:[AuthGuard],
+  //     component: PaperSelectionComponent,
+  //     data: { title: 'Create Job', breadcrumb: 'BLANK' }
+  //   }]
+  //   // path: 'select-papers',    
+  //   // component: PaperSelectionComponent,
+  //   // data: { title: 'Select Papers', breadcrumb: 'BLANK' }
+  // },
   {
     path: 'fabrication',
     component: FabricationComponent,
