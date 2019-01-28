@@ -5,6 +5,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GestureConfig } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrintingService } from "./printing.service";
+
+// import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
+
 import { 
   MatListModule,
   MatIconModule,
@@ -68,6 +71,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    // NgxDaterangepickerMd.forRoot(),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

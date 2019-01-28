@@ -127,4 +127,16 @@ td.mat-cell:first-child {
     background: grey;
     border: 1px solid white;
 }
+
+.printing-progress {
+    margin-bottom: 10vh;
+    min-height: 500px;
+}
+
+ .selectfield {
+    min-width: 555px !important;
+    
+} 
+
+
   

@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatTableDataSource, MatSort, MatPaginator} from '@angular/material';
 import { PrintingService } from '../../../printing.service';
+import { Moment } from 'moment';
 
 
 
@@ -14,6 +15,7 @@ export class AppBlankComponent implements OnInit {
 
   dataSource;
   displayedColumns;
+  selected: {start: Moment, end: Moment};
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -23,6 +25,7 @@ export class AppBlankComponent implements OnInit {
   }
 
   ngOnInit() {
+    // console.log(this.selected);
     this.PS.getFabricationDetails().subscribe(result => {
       if(!result) {
         return;
@@ -36,6 +39,12 @@ export class AppBlankComponent implements OnInit {
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  change(data) {
+    if(data.start != null){
+      console.log(data.start._d, data.end._d);
+    }
   }
 
 

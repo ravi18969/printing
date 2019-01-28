@@ -73,12 +73,35 @@
     </table>
   </mat-card> -->
 
-  <mat-card>
+  <mat-card class="printing-progress">
     <mat-card-title style="color: slategray; font-size: 2.2rem !important">Printing Status</mat-card-title>
 
-    <mat-form-field style="left: 3%; position: relative;">
-      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-    </mat-form-field>
+    <div fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="center"
+    fxLayoutGap="5%"
+    fxLayoutGap.xs="0">
+    <mat-form-field fxFlex="50%" style="left: 2%; position: relative;">
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      </mat-form-field>
+  
+      <mat-form-field fxFlex="50%" class="selectfield">
+          <input matInput type="text" 
+          ngxDaterangepickerMd
+          [locale]="{applyLabel: 'ok', format: 'DD-MM-YYYY', direction :'rtl'}"
+          startKey="start"
+          endKey="end"
+          [(ngModel)]="selected"
+          placeholder="Select Date"
+          name="daterange"
+          (change)="change($event)"
+          />
+    
+        </mat-form-field>
+      
+    </div>
+    
+      
     <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8" style="margin: 10px;">
   
       <!--- Note that these columns can be defined in any order.

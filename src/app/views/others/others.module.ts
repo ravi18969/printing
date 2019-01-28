@@ -36,6 +36,7 @@ import { OthersRoutes } from "./others.routing";
 // import { CreateRequirementComponent } from './create-requirement/create-requirement.component';
 // import { MakePapersComponent } from './make-papers/make-papers.component';
 import { EditJobComponent } from './edit-job/edit-job.component';
+import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
 // import { FabricationComponent } from './fabrication/fabrication.component';
 // import { DialogboxComponent } from './dialogbox/dialogbox.component';
 
@@ -70,6 +71,7 @@ import { EditJobComponent } from './edit-job/edit-job.component';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    NgxDaterangepickerMd.forRoot(),
     RouterModule.forChild(OthersRoutes)
   ],
   declarations: [
