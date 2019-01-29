@@ -12,9 +12,10 @@ export class AuthService {
   constructor(private http: HttpClient,
     private router: Router) { }
 
-    // registerUser(user) {
-    //   return this.http.post<any>(this.uri, user)
-    // }
+    registerUser(user) {
+      console.log(user);
+      return this.http.post<any>(`${this.uri}/register`, user)
+    }
   
     loginUser(user) {
       return this.http.post<any>(`${this.uri}/login`, user);

@@ -78,6 +78,10 @@ button {
 table {
     width: 100%;
     color: white;
+    /* position: relative;
+    left: 0; */
+    margin: 5px -20px !important;
+
 }
 
 td:nth-child(1) {
@@ -131,10 +135,11 @@ td.mat-cell:first-child {
 .printing-progress {
     margin-bottom: 10vh;
     min-height: 500px;
+    overflow-x: scroll;
 }
 
  .selectfield {
-    min-width: 555px !important;
+    min-width: 570px !important;
     
 } 
 

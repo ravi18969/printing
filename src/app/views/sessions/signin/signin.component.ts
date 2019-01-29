@@ -19,8 +19,8 @@ export class SigninComponent implements OnInit {
 
   ngOnInit() {
     this.signinForm = new FormGroup({
-      email: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required, Validators.minLength(6)]),
       rememberMe: new FormControl(false)
     })
   }
@@ -34,16 +34,14 @@ export class SigninComponent implements OnInit {
     this.auth.loginUser(signinData)
     .subscribe(
       res => {
-        console.log(res);
         localStorage.setItem('token', res.token)
         this.router.navigate(['/'])
       },
       err =>{
-          let snackBarRef = this.snackBar.open("Invalid Email and Password", 'Close',{
+          this.snackBar.open(err.error, 'Close',{
             horizontalPosition:"center",
             verticalPosition:"top"
           });
-          console.log(err);
           this.router.navigate(["/"]);
           this.progressBar.mode = "determinate";
           // this.signinForm.reset();  

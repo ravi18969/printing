@@ -43,7 +43,15 @@ export class AppBlankComponent implements OnInit {
 
   change(data) {
     if(data.start != null){
+      let dateRange = {
+        start: data.start._d,
+        end: data.end._d
+      }
       console.log(data.start._d, data.end._d);
+      this.PS.getProductByDate(dateRange)
+      .subscribe(res => {
+        console.log(res);
+      })
     }
   }
 

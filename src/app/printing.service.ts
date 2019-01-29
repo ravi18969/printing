@@ -66,6 +66,12 @@ export class PrintingService {
     return this.http.post(`${this.uri3}/updateQuantity/${id}`, quantity)
   }
 
+
+  getProductByDate(dateRange) {
+    return this.http.get(`${this.uri}/getProductByDate`, {params: dateRange})
+    
+  }
+
   
 
 }
