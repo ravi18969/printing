@@ -58,6 +58,10 @@ export class PrintingService {
     return this.http.get(`${this.uri2}/getfabrications`);
   }
 
+  getFabricationMonthly() {
+    return this.http.get(`${this.uri2}/getfabricationMonthlyBasis`);
+  }
+
   getPapers() {
     return this.http.get(`${this.uri3}/getPapersData`);
   }
@@ -68,7 +72,11 @@ export class PrintingService {
 
 
   getProductByDate(dateRange) {
-    return this.http.get(`${this.uri}/getProductByDate`, {params: dateRange})
+    let dateToSelect = {
+      start: new Date(dateRange.start).toISOString(),
+      end: new Date(dateRange.end).toISOString()
+    }
+    return this.http.get(`${this.uri2}/getFabricationByDate`, {params:dateToSelect})
     
   }
 

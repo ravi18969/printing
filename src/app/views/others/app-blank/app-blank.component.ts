@@ -15,6 +15,9 @@ export class AppBlankComponent implements OnInit {
 
   dataSource;
   displayedColumns;
+  totalJobs;
+  delayedJobs;
+  pendingJobs;
   selected: {start: Moment, end: Moment};
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -22,6 +25,12 @@ export class AppBlankComponent implements OnInit {
   constructor(private PS: PrintingService) {
     this.displayedColumns = ['jobId', 'vendor', 'deliveryDate', 'Lamination', 'Punching', 'UV',
       'Foiling', 'Folding', 'Pinning', 'Stitching', 'Binding', 'Pasting', 'Cutting'];
+      this.PS.getFabricationMonthly()
+      .subscribe(res => {
+        this.totalJobs = res.totalJobs;
+        this.pendingJobs = res.pendingJobs;
+        this.delayedJobs = res.delayedJobs;
+      });
   }
 
   ngOnInit() {
@@ -30,6 +39,8 @@ export class AppBlankComponent implements OnInit {
       if(!result) {
         return;
       }
+      // this.totalJobs = result.length;
+    
       this.dataSource = new MatTableDataSource(<any> result);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
@@ -49,8 +60,14 @@ export class AppBlankComponent implements OnInit {
       }
       console.log(data.start._d, data.end._d);
       this.PS.getProductByDate(dateRange)
-      .subscribe(res => {
-        console.log(res);
+      .subscribe(result => {
+        // result.filter()
+        if(!result) {
+          return;
+        }
+        this.dataSource = new MatTableDataSource(<any> result);
+        this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator;
       })
     }
   }

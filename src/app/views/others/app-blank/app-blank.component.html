@@ -1,26 +1,26 @@
 <div style="padding:20px;">
   <mat-card class="progress_report">
-      <mat-card-title>Weekly</mat-card-title>
+      <mat-card-title>Monthly</mat-card-title>
       <mat-card-content>
-        <h1 style="color: #31B9F6;">25</h1>
+        <h1 style="color: #31B9F6;">{{totalJobs}}</h1>
         <p>Due Task</p>
       </mat-card-content>
       <hr>
-      <mat-card-footer>Completed: 8</mat-card-footer>
+      <mat-card-footer>Completed: {{totalJobs - pendingJobs}}</mat-card-footer>
   </mat-card>
   <mat-card class="progress_report">
-      <mat-card-title>Overdue</mat-card-title>
+      <mat-card-title>Pending</mat-card-title>
       <mat-card-content>
-        <h1 style="color: #F44336;">5</h1>
+        <h1 style="color: #F44336;">{{pendingJobs}}</h1>
         <p>Tasks</p>
       </mat-card-content>
       <hr>
       <mat-card-footer>Yesterday's over: 8</mat-card-footer>
   </mat-card>
   <mat-card class="progress_report">
-    <mat-card-title>Issues</mat-card-title>
+    <mat-card-title>Delayed</mat-card-title>
     <mat-card-content>
-      <h1 style="color: #FF9800;">6</h1>
+      <h1 style="color: #FF9800;">{{delayedJobs}}</h1>
       <p>Open</p>
     </mat-card-content>
     <hr>
