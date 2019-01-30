@@ -10,7 +10,7 @@
       </div>
       <mat-card-content fxFlex="50%">
         <mat-card-title>Progress</mat-card-title>
-        <h1 style="color: #31B9F6; line-height: 0.3">{{totalJobs}}</h1>
+        <h1 style="color: #31B9F6; line-height: 0.3">{{totalJobs - completedJobs - pendingJobs}}</h1>
       </mat-card-content>
     </div>
     <br><br>
@@ -64,7 +64,7 @@
       </div>
       <mat-card-content fxFlex="50%">
         <mat-card-title>Completed</mat-card-title>
-        <h1 style="color: #3b963b; line-height: 0.3">{{delayedJobs}}</h1>
+        <h1 style="color: #3b963b; line-height: 0.3">{{completedJobs}}</h1>
       </mat-card-content>
     </div>
     <br><br>

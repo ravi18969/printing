@@ -18,6 +18,7 @@ export class AppBlankComponent implements OnInit {
   totalJobs;
   delayedJobs;
   pendingJobs;
+  completedJobs;
   selected: {start: Moment, end: Moment};
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -30,6 +31,7 @@ export class AppBlankComponent implements OnInit {
         this.totalJobs = res.totalJobs;
         this.pendingJobs = res.pendingJobs;
         this.delayedJobs = res.delayedJobs;
+        this.completedJobs = res.completedJobs;
       });
   }
 
@@ -60,15 +62,20 @@ export class AppBlankComponent implements OnInit {
       }
       console.log(data.start._d, data.end._d);
       this.PS.getProductByDate(dateRange)
-      .subscribe(result => {
+      .subscribe((result:any) => {
         // result.filter()
         if(!result) {
           return;
         }
-        this.dataSource = new MatTableDataSource(<any> result);
+        this.totalJobs = result.totalJobs;
+        this.pendingJobs = result.pendingJobs;
+        this.delayedJobs = result.delayedJobs;
+        this.completedJobs = result.completedJobs;
+        this.dataSource = new MatTableDataSource(<any> result.jobs);
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
-      })
+      });
+      
     }
   }
 

@@ -61,7 +61,8 @@ export class FabricationComponent implements OnInit {
       cuttingDate:[''],
       cuttingStatus:[''],
       cuttingDelayReason:[''],
-    }); 
+    });
+    this.myForm.disabled;
   }
 
   jobIdChangeHandler(selectedJob) {
@@ -74,6 +75,7 @@ export class FabricationComponent implements OnInit {
       delete res['__v'];
       delete res['_id'];
       delete res['deliveryDate'];
+      delete res['workingStatus'];
       this.vendorName = res['vendor'];
       delete res['vendor'];
       this.myForm.setValue(res);
@@ -82,8 +84,11 @@ export class FabricationComponent implements OnInit {
 
   onSubmit(data) {
     let fabricationDetails = data.value;
+    // if(fabricationDetails.cuttingStatus == 'Completed') {
+    //   fabricationDetails.workingStatus = 11;
+    // }
     console.log(data.value);
-    // this.router.navigate(['/']);
+    this.router.navigate(['/']);
     this.PS.saveFabrication(fabricationDetails)
     .subscribe( (res) => {
       this.myForm.reset();
