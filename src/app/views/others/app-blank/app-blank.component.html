@@ -1,14 +1,76 @@
 <div style="padding:20px;">
   <mat-card class="progress_report">
-      <mat-card-title>Monthly</mat-card-title>
-      <mat-card-content>
-        <h1 style="color: #31B9F6;">{{totalJobs}}</h1>
-        <p>Due Task</p>
+    <div fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="center"
+    fxLayoutGap="5%"
+    fxLayoutGap.xs="0">
+      <div fxFlex="50%" style="position:relative; top:50%;">
+        <mat-icon style="color:#31B9F6">horizontal_split</mat-icon>
+      </div>
+      <mat-card-content fxFlex="50%">
+        <mat-card-title>Progress</mat-card-title>
+        <h1 style="color: #31B9F6; line-height: 0.3">{{totalJobs}}</h1>
       </mat-card-content>
-      <hr>
-      <mat-card-footer>Completed: {{totalJobs - pendingJobs}}</mat-card-footer>
+    </div>
+    <br><br>
+    <mat-card-footer>Jobs Progress</mat-card-footer> 
   </mat-card>
+
   <mat-card class="progress_report">
+    <div fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="center"
+    fxLayoutGap="5%"
+    fxLayoutGap.xs="0">
+      <div fxFlex="50%" style="position:relative; top:50%;">
+        <mat-icon style="color:#FF9800">access_time</mat-icon>
+      </div>
+      <mat-card-content fxFlex="50%">
+        <mat-card-title>Pending</mat-card-title>
+        <h1 style="color: #FF9800; line-height: 0.3">{{pendingJobs}}</h1>
+      </mat-card-content>
+    </div>
+    <br><br>
+    <mat-card-footer>Jobs Pending</mat-card-footer> 
+  </mat-card>
+
+  <mat-card class="progress_report">
+    <div fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="center"
+    fxLayoutGap="5%"
+    fxLayoutGap.xs="0">
+      <div fxFlex="50%" style="position:relative; top:50%;">
+        <mat-icon style="color:#F44336">trending_down</mat-icon>
+      </div>
+      <mat-card-content fxFlex="50%">
+        <mat-card-title>Delayed</mat-card-title>
+        <h1 style="color: #F44336; line-height: 0.3">{{delayedJobs}}</h1>
+      </mat-card-content>
+    </div>
+    <br><br>
+    <mat-card-footer>Jobs Delayed</mat-card-footer> 
+  </mat-card>
+
+  <mat-card class="progress_report">
+    <div fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="center"
+    fxLayoutGap="5%"
+    fxLayoutGap.xs="0">
+      <div fxFlex="50%" style="position:relative; top:50%;">
+        <mat-icon style="color: #3b963b">assignment_turned_in</mat-icon>
+      </div>
+      <mat-card-content fxFlex="50%">
+        <mat-card-title>Completed</mat-card-title>
+        <h1 style="color: #3b963b; line-height: 0.3">{{delayedJobs}}</h1>
+      </mat-card-content>
+    </div>
+    <br><br>
+    <mat-card-footer>Jobs Completed</mat-card-footer> 
+  </mat-card>
+  <!-- <mat-card class="progress_report">
       <mat-card-title>Pending</mat-card-title>
       <mat-card-content>
         <h1 style="color: #F44336;">{{pendingJobs}}</h1>
@@ -25,9 +87,9 @@
     </mat-card-content>
     <hr>
     <mat-card-footer>Total Printing: 126</mat-card-footer>
-  </mat-card>
+  </mat-card> -->
 
-  <mat-card class="progress_report">
+  <!-- <mat-card class="progress_report">
     <mat-card-title>Printing</mat-card-title>
     <mat-card-content>
       <h1 style="color: #607D8B;">6</h1>
@@ -35,7 +97,7 @@
     </mat-card-content>
     <hr>
     <mat-card-footer>Implemented: 126</mat-card-footer>
-  </mat-card>
+  </mat-card> -->
   
   <br><br>
   <!-- <mat-card style="width: 95%;position: relative;">
@@ -74,7 +136,7 @@
   </mat-card> -->
 
   <mat-card class="printing-progress">
-    <mat-card-title style="color: slategray; font-size: 2.2rem !important">Printing Status</mat-card-title>
+    <mat-card-title style="color: slategray; font-size: 1.5rem !important">Printing Status</mat-card-title>
 
     <div fxLayout
     fxLayout.xs="column"

@@ -1,18 +1,27 @@
 .progress_report {
+    position: relative;
     display: inline-block;
     padding: 0px !important;
-    margin-left: 3%;
-    margin-top: 30px;
-    width: 20%;
-    height: 230px;
+    top: 5%;
+    margin-left: 1%;
+    width: 23%;
+    height: 180px;
     text-align: center;
-    font-weight: bold;
     color: rgb(128, 119, 119);
+    border-radius: 1.54em;
 }
 
+.progress_report mat-icon {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 4rem;
+    /* color: cornflowerblue; */
+    left: -20% !important;
+}
 .mat-card-title {
-    padding: 9px;
-    font-size: 2em !important;
+    padding-top: 9px;
+    font-size: 1rem !important;
     color: black;
 }
 
@@ -78,8 +87,7 @@ button {
 table {
     width: 100%;
     color: white;
-    /* position: relative;
-    left: 0; */
+    
     margin: 5px -20px !important;
 
 }

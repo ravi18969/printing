@@ -26,7 +26,7 @@ export class AppBlankComponent implements OnInit {
     this.displayedColumns = ['jobId', 'vendor', 'deliveryDate', 'Lamination', 'Punching', 'UV',
       'Foiling', 'Folding', 'Pinning', 'Stitching', 'Binding', 'Pasting', 'Cutting'];
       this.PS.getFabricationMonthly()
-      .subscribe(res => {
+      .subscribe((res:any) => {
         this.totalJobs = res.totalJobs;
         this.pendingJobs = res.pendingJobs;
         this.delayedJobs = res.delayedJobs;
