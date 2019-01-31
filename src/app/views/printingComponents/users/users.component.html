@@ -8,17 +8,38 @@
     <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
   </mat-form-field>
   <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8" style="margin: 10px;">
-    <ng-container matColumnDef="jobId">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Job Id </th>
-      <td mat-cell *matCellDef="let product"> {{product.jobId}} </td>
+    <ng-container matColumnDef="username">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+      <td mat-cell *matCellDef="let user"> {{user.firstName}} {{user.lastName}}  </td>
     </ng-container>
     
-    <ng-container matColumnDef="vendor">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Vendor </th>
-      <td mat-cell *matCellDef="let product"> {{product.vendor}} </td>
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> email </th>
+      <td mat-cell *matCellDef="let user"> {{user.email}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="paperType">
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+      <td mat-cell *matCellDef="let user"> {{user.status}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="role">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Role </th>
+      <td mat-cell *matCellDef="let user"> {{user.role}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+      <td mat-cell *matCellDef="let user"> 
+        <button mat-flat-button style="background: #42ac18" >Activate</button>        
+        <button mat-flat-button style="background: #246ece" >Make Admin</button>        
+        <button mat-flat-button style="background: #ec4d45" >Delete</button>        
+      </td>
+    </ng-container>
+
+    
+
+    <!-- <ng-container matColumnDef="paperType">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Paper Type </th>
       <td mat-cell *matCellDef="let product"> {{product.paperType}} </td>
     </ng-container>
@@ -43,20 +64,10 @@
       <td mat-cell *matCellDef="let product"> {{product.plateType}} </td>
     </ng-container>
 
-    <!-- <ng-container matColumnDef="rimWeight">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Rim Weight </th>
-      <td mat-cell *matCellDef="let product"> {{product.rimWeight}} </td>
-    </ng-container> -->
-
     <ng-container matColumnDef="unitPrice">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Unit Price </th>
       <td mat-cell *matCellDef="let product"> {{product.unitPrice}} </td>
     </ng-container>
-
-    <!-- <ng-container matColumnDef="specialPaper">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Special Paper </th>
-      <td mat-cell *matCellDef="let product"> {{product.specialPaper}} </td>
-    </ng-container> -->
 
     <ng-container matColumnDef="status">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
@@ -86,12 +97,10 @@
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
       <td mat-cell *matCellDef="let product"> 
-        <!-- <button mat-flat-button style="background: #6276e2">Edit</button> -->
-        <!-- <span>&nbsp;</span> -->
-        <!-- <br> -->
+  
         <button mat-flat-button style="background: #ec4d45" (click)="removeProduct(product.jobId, product.paperType, product.plates)">Delete</button>
       </td>
-    </ng-container>
+    </ng-container> -->
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

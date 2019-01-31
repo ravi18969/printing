@@ -39,6 +39,7 @@ import { FabricationComponent } from './fabrication/fabrication.component';
 import { EditJobsComponent } from './edit-jobs/edit-jobs.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { ListJobsComponent } from './list-jobs/list-jobs.component';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   imports: [
@@ -80,7 +81,8 @@ import { ListJobsComponent } from './list-jobs/list-jobs.component';
       FabricationComponent,
       EditJobsComponent,
       InventoryComponent,
-      ListJobsComponent
+      ListJobsComponent,
+      UsersComponent
    
   ],
   providers: [

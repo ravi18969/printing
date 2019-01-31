@@ -12,8 +12,13 @@ export class SidenavComponent {
   @Input('hasIconMenu') public hasIconTypeMenuItem: boolean;
   @Input('iconMenuTitle') public iconTypeMenuTitle: string;
 
+  userRole;
   constructor(private dialog: MatDialog) {}
-  ngOnInit() {}
+  ngOnInit() {
+    this.userRole = localStorage.getItem('userRole');
+    console.log("Role:", this.userRole);
+
+  }
 
   // Only for demo purpose
   addMenuItem() {

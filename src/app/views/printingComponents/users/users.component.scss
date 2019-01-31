@@ -1,0 +1,31 @@
+table {
+    width: 100%;
+    color: white;
+}
+
+td:nth-child(1) {
+    font-size: 1em;
+    color: white;
+    font-weight: bold;
+    background-color: #a29da7;
+}
+
+td.mat-cell:first-child {
+    padding: 5px !important;
+}
+
+.mat-header-cell {
+    text-align: center !important;
+    background-color: #6a8280;
+    color: white;
+    font-size: 1em;
+}
+
+.mat-cell {
+    text-align: center;
+    border: 1px solid #bbb8b8;
+}
+button {
+    margin: 2px;
+    border-radius: 1.54em;
+}

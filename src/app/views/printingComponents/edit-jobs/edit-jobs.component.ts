@@ -19,6 +19,7 @@ export class EditJobsComponent implements OnInit {
   selectedJobId;
   jobIdLists = [];
   dbProductId;
+  platesCount;
 
   constructor(private fb: FormBuilder, private PS: PrintingService, private router: Router) { 
     this.PS.getAllProuducts()
@@ -66,12 +67,17 @@ export class EditJobsComponent implements OnInit {
       delete item['_id'];
       delete item['jobId'];
       delete item['__v'];
+      this.platesCount = item['plates']
       this.myForm.setValue(item);
     });
   }
 
   onSubmit(data) {
     let updatedItem = data.value;
+    this.platesCount = updatedItem.plates - this.platesCount;
+    console.log(this.platesCount);
+    updatedItem.papersToAdd = this.platesCount;
+    // console.log(updatedItem.papersToAdd);
     this.PS.updatePrudct(this.dbProductId,  updatedItem)
     .subscribe((res) => {
       console.log(res);

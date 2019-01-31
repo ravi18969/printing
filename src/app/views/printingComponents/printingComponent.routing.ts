@@ -6,6 +6,7 @@ import { EditJobsComponent } from './edit-jobs/edit-jobs.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { AuthGuard } from '../../shared/services/auth/auth.guard';
 import { ListJobsComponent } from './list-jobs/list-jobs.component';
+import { UsersComponent } from './users/users.component';
 
 
 export const PrintingRoutes: Routes = [
@@ -17,8 +18,13 @@ export const PrintingRoutes: Routes = [
       data: { title: 'Create Job', breadcrumb: 'BLANK' }
     }]
   },
+  {
+    path: 'list-users',
+    component: UsersComponent,
+    data: { title: 'Users List', breadcrumb: 'BLANK' }
+  },
   // {
-  //   path: '',
+  //   path: 'UsersComponent',
   //   children: [{
   //     path: 'select-papers',
   //     canActivateChild:[AuthGuard],

@@ -109,6 +109,13 @@ export class NavigationService {
       icon: 'layers',
       state: 'job/list-jobs'
     },
+    {
+      name: 'List Users',
+      type: 'link',
+      tooltip: 'Chat',
+      icon: 'layers',
+      state: 'job/list-users'
+    },
   ]
 
   // Icon menu TITLE at the very top of navigation.

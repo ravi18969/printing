@@ -23,6 +23,7 @@ export class AuthService {
   
     logoutUser() {
       localStorage.removeItem('token')
+      localStorage.removeItem('userRole');
       this.router.navigate(['/sessions/signin'])
     }
   
@@ -33,4 +34,9 @@ export class AuthService {
     loggedIn() {
       return !!localStorage.getItem('token')    
     }
+
+    getUsers() {
+      return this.http.get(`${this.uri}/getUsers`);
+    }
+
 }

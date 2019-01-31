@@ -22,14 +22,16 @@
       </div>
       <div *ngIf="!item.disabled && item.type !== 'separator' && item.type !== 'icon'" class="lvl1">
         
-        <a routerLink="/{{item.state}}" appDropdownToggle matRipple *ngIf="item.type === 'link' && item.name == 'Edit Job'; else elseBlock">
+      <div *ngIf="item.type === 'link' && item.name == 'List Users' && userRole == 'admin'; else elseBlock">
+        <a routerLink="/{{item.state}}" appDropdownToggle matRipple >
           <mat-icon>{{item.icon}}</mat-icon>
           <span class="item-name lvl1">{{item.name | translate}}</span>
           <span fxFlex></span>
           <span class="menuitem-badge mat-bg-{{ badge.color }}" [ngStyle]="{background: badge.color}" *ngFor="let badge of item.badges">{{ badge.value }}</span>
         </a>
+      </div>
         <ng-template #elseBlock>
-          <a routerLink="/{{item.state}}" appDropdownToggle matRipple *ngIf="item.type === 'link'">
+          <a routerLink="/{{item.state}}" appDropdownToggle matRipple *ngIf="item.type === 'link' && item.name !== 'List Users'">
             <mat-icon>{{item.icon}}</mat-icon>
             <span class="item-name lvl1">{{item.name | translate}}</span>
             <span fxFlex></span>

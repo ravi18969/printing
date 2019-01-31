@@ -27,6 +27,11 @@
           <mat-option value="TypeB">TypeB</mat-option>
           <mat-option value="TypeC">TypeC</mat-option>
         </mat-select>
+        <mat-error *ngIf="myForm.controls.laminationType.invalid && (myForm.controls.laminationType.dirty || myForm.controls.laminationType.touched)">
+          <mat-error *ngIf="myForm.controls.laminationType.errors.required">
+              Please select Lamination type.
+          </mat-error>
+        </mat-error>
       </mat-form-field>
       <mat-form-field fxFlex="25%">
           <mat-label>Completion date</mat-label>
@@ -35,12 +40,22 @@
             <mat-icon matDatepickerToggleIcon>date_range</mat-icon>
           </mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="myForm.controls.laminationDate.invalid && (myForm.controls.laminationDate.dirty || myForm.controls.laminationDate.touched)">
+            <mat-error *ngIf="myForm.controls.laminationDate.errors.required">
+                Please select completion date.
+            </mat-error>
+          </mat-error>
       </mat-form-field>
       <mat-form-field fxFlex="25%">
           <mat-select formControlName="laminationStatus" placeholder="Change Status">
             <mat-option value="Running">Running</mat-option>
             <mat-option value="Completed">Completed</mat-option>
           </mat-select>
+          <mat-error *ngIf="myForm.controls.laminationStatus.invalid && (myForm.controls.laminationStatus.dirty || myForm.controls.laminationStatus.touched)">
+            <mat-error *ngIf="myForm.controls.laminationStatus.errors.required">
+                Please select status.
+            </mat-error>
+          </mat-error>
         </mat-form-field>
         <mat-form-field fxFlex="25%">
             <input matInput formControlName="laminationDelayReason"placeholder="Reason for Delay">
@@ -177,7 +192,7 @@
       fxLayoutGap.xs="0">
         <mat-form-field fxFlex="33%">
             <mat-label>Completion date</mat-label>
-            <input matInput [min] ="minDate" [matDatepicker]="picker6" formControlName="pinningDate" placeholder="Choose a date">
+            <input matInput [min] ="minDate" [matDatepicker]="picker6" formControlName="pinningDate" placeholder="Choose a date" (dateChange)="onChanges('pinning')">
             <mat-datepicker-toggle matSuffix [for]="picker6">
               <mat-icon matDatepickerToggleIcon>date_range</mat-icon>
             </mat-datepicker-toggle>
@@ -306,7 +321,7 @@
   </mat-card>
   <br>
   <mat-card-actions>
-    <button mat-flat-button color="primary" type="submit" style="position: relative;left: 50%; transform: translateX(-50%);border-radius: 1.54em;">Submit</button>
+    <button mat-flat-button [disabled]="myForm.invalid" color="primary" type="submit" style="position: relative;left: 50%; transform: translateX(-50%);border-radius: 1.54em;">Submit</button>
   </mat-card-actions>
 
   </form>

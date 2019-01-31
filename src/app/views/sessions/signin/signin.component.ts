@@ -35,6 +35,8 @@ export class SigninComponent implements OnInit {
     .subscribe(
       res => {
         localStorage.setItem('token', res.token)
+        localStorage.setItem('userRole', res.role);
+
         this.router.navigate(['/'])
       },
       err =>{

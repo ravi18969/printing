@@ -1,6 +1,7 @@
 import { Injectable, Injector } from '@angular/core';
 import { HttpInterceptor } from '@angular/common/http'
 import { AuthService } from './app/shared/services/auth.service';
+import { PrintingService } from 'app/printing.service';
 
 @Injectable({
   providedIn: 'root'

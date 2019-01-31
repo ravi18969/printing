@@ -10,7 +10,10 @@ export class PrintingService {
   uri2 = 'http://localhost:8000/api/fabrication';
   uri3 = 'http://localhost:8000/api/papers';
 
-  
+  fabStatus = ['laminationStatus', 'punchingStatus', 'uvStatus', 'foilingStatus',
+  'foldingStatus', 'pinningStatus', 'stitchingStatus', 'bindingStatus', 'pastingStatus',
+  'cuttingStatus'];
+
   constructor(private http: HttpClient) { }
   // listProudcts() {
   //   return this.http.get(`${this.uri}/listProducts`);
@@ -46,7 +49,8 @@ export class PrintingService {
 
 
   saveFabrication(data) {
-     return this.http.post(`${this.uri2}/saveFabrication`, data);
+
+    return this.http.post(`${this.uri2}/saveFabrication`, data);
   }
 
   getFabricationById(id) {
