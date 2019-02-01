@@ -46,17 +46,19 @@ export class SignupComponent implements OnInit {
     this.submitButton.disabled = true;
     this.progressBar.mode = 'indeterminate';
     this.auth.registerUser(signupData)
-    .subscribe(res => {
+    .subscribe(
+      res => {
       // localStorage.setItem('token', res.token)
       this.router.navigate(['/']);
     },
-    err => {
-      this.snackBar.open(err.error, 'Close',{
-        horizontalPosition:"center",
-        verticalPosition:"top"
-      });
-      this.router.navigate(["/sessions/signup"]);
-      this.progressBar.mode = "determinate";
+      err => {
+        console.log(err);
+        this.snackBar.open(err.error, 'Close',{
+          horizontalPosition:"center",
+          verticalPosition:"top"
+        });
+        this.router.navigate(["/sessions/signup"]);
+        this.progressBar.mode = "determinate";
     })
   }
 

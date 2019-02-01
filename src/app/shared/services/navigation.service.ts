@@ -113,7 +113,7 @@ export class NavigationService {
       name: 'List Users',
       type: 'link',
       tooltip: 'Chat',
-      icon: 'layers',
+      icon: 'group',
       state: 'job/list-users'
     },
   ]

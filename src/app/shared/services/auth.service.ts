@@ -13,7 +13,6 @@ export class AuthService {
     private router: Router) { }
 
     registerUser(user) {
-      console.log(user);
       return this.http.post<any>(`${this.uri}/register`, user)
     }
   
@@ -37,6 +36,25 @@ export class AuthService {
 
     getUsers() {
       return this.http.get(`${this.uri}/getUsers`);
+    }
+
+    changeStatus(id:string, status) {
+      console.log("Auth service:", id, status)
+      let userStatus = {
+        status: status
+      }
+      return this.http.post(`${this.uri}/changeUserStatus/${id}`, userStatus);
+    }
+
+    changeRole(id, role) {
+      let userRole = {
+        role: role
+      }
+      return this.http.post(`${this.uri}/changeUserRole/${id}`, userRole);
+    }
+
+    deleteUser(id) {
+      return this.http.get(`${this.uri}/deleteUser/${id}`);
     }
 
 }

@@ -36,10 +36,11 @@ export class SigninComponent implements OnInit {
       res => {
         localStorage.setItem('token', res.token)
         localStorage.setItem('userRole', res.role);
-
+        console.log(res.token);
         this.router.navigate(['/'])
       },
       err =>{
+        console.log(err)
           this.snackBar.open(err.error, 'Close',{
             horizontalPosition:"center",
             verticalPosition:"top"

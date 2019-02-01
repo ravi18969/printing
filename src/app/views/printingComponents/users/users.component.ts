@@ -34,4 +34,48 @@ export class UsersComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  changeStatus(id:string, status:string) {
+    console.log(id, status)
+    this.auth.changeStatus(id, status)
+    .subscribe(res => {
+      console.log(res);
+      this.auth.getUsers().subscribe(users => {
+        if(!users) {
+          return;
+        }
+        this.dataSource = new MatTableDataSource(<any> users);
+        this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator;
+      });
+    });
+  }
+
+  changeRole(id, role:string) {
+    this.auth.changeRole(id, role)
+    .subscribe(res => {
+      this.auth.getUsers().subscribe(users => {
+        if(!users) {
+          return;
+        }
+        this.dataSource = new MatTableDataSource(<any> users);
+        this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator;
+      });
+    });
+  }
+
+  delteUser(id) {
+    this.auth.deleteUser(id)
+    .subscribe((res) => {
+      this.auth.getUsers().subscribe(users => {
+        if(!users) {
+          return;
+        }
+        this.dataSource = new MatTableDataSource(<any> users);
+        this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator;
+      });
+    });
+  }
+
 }
