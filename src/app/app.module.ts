@@ -35,10 +35,11 @@ import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
 
 
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {HttpClient, HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { DialogboxComponent } from './views/others/dialogbox/dialogbox.component';
+// import { TokenInterceptorService } from 'token-interceptor.service';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -83,6 +84,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   ],
   declarations: [AppComponent, DialogboxComponent],
   providers: [
+    // {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true},
+
     // ANGULAR MATERIAL SLIDER FIX
     { provide: HAMMER_GESTURE_CONFIG, useClass: GestureConfig},
     PrintingService

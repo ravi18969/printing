@@ -21,13 +21,12 @@ export class SigninComponent implements OnInit {
     this.signinForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required, Validators.minLength(6)]),
-      rememberMe: new FormControl(false)
+      // rememberMe: new FormControl(false)
     })
   }
 
   signin() {
     const signinData = this.signinForm.value
-    console.log(signinData);
 
     this.submitButton.disabled = true;
     this.progressBar.mode = 'indeterminate';
@@ -36,18 +35,16 @@ export class SigninComponent implements OnInit {
       res => {
         localStorage.setItem('token', res.token)
         localStorage.setItem('userRole', res.role);
-        console.log(res.token);
+        localStorage.setItem('name', res.name);
         this.router.navigate(['/'])
       },
       err =>{
-        console.log(err)
           this.snackBar.open(err.error, 'Close',{
             horizontalPosition:"center",
             verticalPosition:"top"
           });
           this.router.navigate(["/"]);
           this.progressBar.mode = "determinate";
-          // this.signinForm.reset();  
       }
     ) 
   }

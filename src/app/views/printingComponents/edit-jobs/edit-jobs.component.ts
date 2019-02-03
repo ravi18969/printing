@@ -50,14 +50,12 @@ export class EditJobsComponent implements OnInit {
   }
 
   selectChangeHandler(selected) {
-    // console.log(selected.value);
     if(selected.value == "Special paper") 
     this.specialPaper = !this.specialPaper;
     else this.specialPaper = false;
   }
 
   jobIdChangeHandler(selectedJob) {
-    console.log(selectedJob.value);
     this.selectedJobId = selectedJob.value;
     this.PS.getProuduct(this.selectedJobId)
     .subscribe(item => {
@@ -75,12 +73,9 @@ export class EditJobsComponent implements OnInit {
   onSubmit(data) {
     let updatedItem = data.value;
     this.platesCount = updatedItem.plates - this.platesCount;
-    console.log(this.platesCount);
     updatedItem.papersToAdd = this.platesCount;
-    // console.log(updatedItem.papersToAdd);
     this.PS.updatePrudct(this.dbProductId,  updatedItem)
     .subscribe((res) => {
-      console.log(res);
       this.router.navigate(['/']);
     })
   }

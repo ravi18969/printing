@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {MatDialog, MatDialogConfig} from "@angular/material";
-import { DialogboxComponent } from '../../../views/others/dialogbox/dialogbox.component';
 
 
 @Component({
@@ -16,7 +15,6 @@ export class SidenavComponent {
   constructor(private dialog: MatDialog) {}
   ngOnInit() {
     this.userRole = localStorage.getItem('userRole');
-    console.log("Role:", this.userRole);
 
   }
 

@@ -38,10 +38,8 @@ export class ListJobsComponent implements OnInit {
   }
 
   removeProduct(id, paperType, count) {
-    console.log(id, paperType, count);
     this.PS.removeJob(id, paperType, count)
     .subscribe(res => {
-      console.log(res);
       this.PS.getAllProuducts().subscribe(result => {
         if(!result) {
           return;

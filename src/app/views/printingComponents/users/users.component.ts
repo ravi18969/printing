@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatTableDataSource, MatSort, MatPaginator} from '@angular/material';
 import { AuthService } from 'app/shared/services/auth.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,9 +14,17 @@ export class UsersComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   displayedColumns;
   dataSource;
+  isAdmin = false;
 
-  constructor(private auth: AuthService) { 
+  constructor(private auth: AuthService, private router: Router) { 
     this.displayedColumns = ['username', 'email', 'status', 'role', 'action'];
+    if(localStorage.getItem('userRole') == 'admin') {
+      this.isAdmin = true;
+    }
+    else {
+      this.isAdmin = false;
+      this.router.navigate(['/']);
+    }
   }
 
   ngOnInit() {
@@ -35,10 +44,8 @@ export class UsersComponent implements OnInit {
   }
 
   changeStatus(id:string, status:string) {
-    console.log(id, status)
     this.auth.changeStatus(id, status)
     .subscribe(res => {
-      console.log(res);
       this.auth.getUsers().subscribe(users => {
         if(!users) {
           return;

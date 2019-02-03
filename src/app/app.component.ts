@@ -13,7 +13,7 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit, AfterViewInit {
-  appTitle = 'Egret';
+  appTitle = 'Veekay Printers';
   pageTitle = '';
 
   constructor(
@@ -42,7 +42,6 @@ export class AppComponent implements OnInit, AfterViewInit {
                       .reverse()
                       .map((part) => part.title )
                       .reduce((partA, partI) => {return `${partA} > ${partI}`});
-      this.pageTitle += ` | ${this.appTitle}`;
       this.title.setTitle(this.pageTitle);
     });
   }

@@ -19,15 +19,16 @@
     <!-- Sidebar user -->
     <div class="app-user">
       <div class="app-user-photo">
-        <img src="assets/images/face-4.jpg" alt="">
+        <img src="assets/images/userface.png" alt="">
+
       </div>
       <span class="app-user-name mb-05">
-        <mat-icon class="icon-xs text-muted">lock</mat-icon> 
-        Watson Joyce
+        <mat-icon class="icon-xs text-muted" style="font-weight: bold; font-size: 1.1rem">lock</mat-icon> 
+        {{userName | titlecase}}
       </span>
       <!-- Small buttons -->
       <div class="app-user-controls">
-        <button 
+        <!-- <button 
         class="text-muted"
         mat-icon-button 
         mat-xs-button
@@ -41,7 +42,7 @@
         matTooltip="Inbox"
         routerLink="/inbox">
           <mat-icon>email</mat-icon>
-        </button>
+        </button> -->
         <button 
         class="text-muted"
         mat-icon-button 

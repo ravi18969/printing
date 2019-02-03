@@ -4,6 +4,8 @@ import { FormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TranslateModule } from '@ngx-translate/core';
+// import { JwtModule } from '@auth0/angular-jwt';
+
 import { 
   MatSidenavModule,
   MatListModule,
@@ -59,6 +61,11 @@ import { AuthGuard } from './services/auth/auth.guard';
 import { AppConfirmService } from './services/app-confirm/app-confirm.service';
 import { AppLoaderService } from './services/app-loader/app-loader.service';
 
+// token Getter
+// export function tokenGetter() {
+//   return localStorage.getItem('access_token');
+// }
+
 /* 
   Only Required if you want to use Angular Landing
   (https://themeforest.net/item/angular-landing-material-design-angular-app-landing-page/21198258)
@@ -108,7 +115,14 @@ const classesToInclude = [
     MatCardModule,
     MatProgressSpinnerModule,
     MatRippleModule,
-    MatDialogModule
+    MatDialogModule,
+    // JwtModule.forRoot({
+    //   config: {
+    //     tokenGetter: tokenGetter,
+    //     whitelistedDomains: ['localhost:8000'],
+    //     blacklistedRoutes: ['localhost:8000/api/auth']
+    //   }
+    // })
   ],
   entryComponents: [AppComfirmComponent, AppLoaderComponent],
   providers: [

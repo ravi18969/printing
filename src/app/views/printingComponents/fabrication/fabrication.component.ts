@@ -70,7 +70,6 @@ export class FabricationComponent implements OnInit {
     this.selectedJobId = selectedJob.value;
     this.PS.getFabricationById(this.selectedJobId)
     .subscribe((res) => {
-      console.log(res);
       delete res['created'];
       delete res['__v'];
       delete res['_id'];
@@ -92,12 +91,10 @@ export class FabricationComponent implements OnInit {
     if(fabricationStatus.length == 10) {
       fabricationDetails.workingStatus = 11;
     }
-    console.log(fabricationStatus);
     this.PS.saveFabrication(fabricationDetails)
     .subscribe( (res) => {
       this.myForm.reset();
       this.vendorName= null;
-      console.log(res)
       this.router.navigate(['/']);
 
     });
@@ -105,38 +102,11 @@ export class FabricationComponent implements OnInit {
   }
 
   onChanges(data) {
-    console.log(data);
     this.myForm.get('pinningDate').valueChanges.subscribe((mode:string) => {
       this.myForm.get('pinningStatus').setValidators([Validators.required]);
       this.myForm.get('pinningStatus').updateValueAndValidity();
     }) 
 
   }
-
-
-  // formControlValueChanged() {
-  //   const laminationType = this.myForm.get('laminationType');
-  //   const laminationDate = this.myForm.get('laminationDate');
-  //   const laminationStatus = this.myForm.get('laminationStatus');
-  //   // console.log(laminationType);
-  //   this.myForm.get('laminationType').valueChanges.subscribe(
-  //       (mode: string) => {
-  //           console.log(mode);
-  //           // if (mode) {
-  //           //   laminationType.setValidators([Validators.required]);
-  //           //   laminationDate.setValidators([Validators.required]);
-  //           //   laminationStatus.setValidators([Validators.required]);
-  //           // }
-  //           // else {
-  //           //   laminationType.clearValidators();
-  //           //   laminationDate.clearValidators();
-  //           //   laminationStatus.clearValidators();
-  //           // }
-
-  //           // laminationType.updateValueAndValidity();
-  //           // laminationDate.updateValueAndValidity();
-  //           // laminationStatus.updateValueAndValidity();
-  //       });
-  // }
 
 }

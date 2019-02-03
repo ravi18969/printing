@@ -15,10 +15,11 @@ export class SidebarSideComponent implements OnInit, OnDestroy, AfterViewInit {
   public hasIconTypeMenuItem: boolean;
   public iconTypeMenuTitle: string;
   private menuItemsSub: Subscription;
+  userName = localStorage.getItem('name');
   constructor(
     private navService: NavigationService,
     public themeService: ThemeService,
-    private auth:AuthService
+    private auth:AuthService,
   ) { }
 
   ngOnInit() {

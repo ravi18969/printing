@@ -15,13 +15,13 @@ export const PrintingRoutes: Routes = [
     children: [{
       path: '',
       component: JobComponent,
-      data: { title: 'Create Job', breadcrumb: 'BLANK' }
+      data: { title: 'New Job', breadcrumb: 'BLANK' }
     }]
   },
   {
     path: 'list-users',
     component: UsersComponent,
-    data: { title: 'Users List', breadcrumb: 'BLANK' }
+    data: { title: 'List Users', breadcrumb: 'BLANK' }
   },
   // {
   //   path: 'UsersComponent',
@@ -43,16 +43,16 @@ export const PrintingRoutes: Routes = [
   {
     path: 'edit-job',
     component: EditJobsComponent,
-    data: { title: 'Edit', breadcrumb: 'BLANK' }
+    data: { title: 'Edit Job', breadcrumb: 'BLANK' }
   },
   {
     path: 'inventory',
     component: InventoryComponent,
-    data: { title: 'Fabrication', breadcrumb: 'BLANK' }
+    data: { title: 'Inventory', breadcrumb: 'BLANK' }
   },
   {
     path: 'list-jobs',
     component: ListJobsComponent,
-    data: { title: 'Fabrication', breadcrumb: 'BLANK' }
+    data: { title: 'List Jobs', breadcrumb: 'BLANK' }
   },
 ];

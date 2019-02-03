@@ -3,7 +3,6 @@ import { Routes } from '@angular/router';
 import { AppBlankComponent } from './app-blank/app-blank.component';
 // import { CreateRequirementComponent } from './create-requirement/create-requirement.component'
 // import { MakePapersComponent } from './make-papers/make-papers.component';
-import { EditJobComponent } from './edit-job/edit-job.component';
 // import { FabricationComponent } from './fabrication/fabrication.component';
 
 export const OthersRoutes: Routes = [
@@ -12,7 +11,7 @@ export const OthersRoutes: Routes = [
     children: [{
       path: '',
       component: AppBlankComponent,
-      data: { title: 'Blank', breadcrumb: 'BLANK' }
+      data: { title: 'Dashboard', breadcrumb: 'BLANK' }
     }]
   },
   // {

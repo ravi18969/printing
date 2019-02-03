@@ -28,31 +28,21 @@ export class SignupComponent implements OnInit {
       lastName: new FormControl('', [Validators.required]),
       password: password,
       confirmPassword: confirmPassword,
-      // agreed: new FormControl('', (control: FormControl) => {
-      //   const agreed = control.value;
-      //   if(!agreed) {
-      //     return { agreed: true }
-      //   }
-      //   return null;
-      // })
+      
     })
   }
 
   signup() {
     const signupData = this.signupForm.value;
-    console.log(signupData);
     delete signupData.confirmPassword;
-
     this.submitButton.disabled = true;
     this.progressBar.mode = 'indeterminate';
     this.auth.registerUser(signupData)
     .subscribe(
       res => {
-      // localStorage.setItem('token', res.token)
       this.router.navigate(['/']);
     },
       err => {
-        console.log(err);
         this.snackBar.open(err.error, 'Close',{
           horizontalPosition:"center",
           verticalPosition:"top"

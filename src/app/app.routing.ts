@@ -28,12 +28,12 @@ export const rootRouterConfig: Routes = [
       {
         path: 'dashboard', 
         loadChildren: './views/others/others.module#OthersModule', 
-        // data: { title: 'Others', breadcrumb: 'OTHERS'}
+        data: { title: 'Dashboard', breadcrumb: 'BLANK'}
       },
       {
         path: 'job', 
         loadChildren: './views/printingComponents/printingComponent.module#PrintingModule', 
-        // data: { title: 'Others', breadcrumb: 'OTHERS'}
+        data: { title: 'Job', breadcrumb: 'BLANK'}
       }
       
     ]

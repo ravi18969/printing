@@ -1,5 +1,4 @@
-<mat-card>
-  <!-- <mat-card-title>Job Lists</mat-card-title> -->
+<mat-card *ngIf="isAdmin; else errorBlock">
   <mat-card-title style="font-size: 2.2em !important;
   position: relative;
   left: 3%;
@@ -49,74 +48,14 @@
       </td>
     </ng-container>
 
-    
-
-    <!-- <ng-container matColumnDef="paperType">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Paper Type </th>
-      <td mat-cell *matCellDef="let product"> {{product.paperType}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="paperSize">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Size </th>
-      <td mat-cell *matCellDef="let product"> {{product.paperSize}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="gsm">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> GSM </th>
-      <td mat-cell *matCellDef="let product"> {{product.gsm}} </td>
-    </ng-container>
-    
-    <ng-container matColumnDef="plates">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Plates </th>
-      <td mat-cell *matCellDef="let product"> {{product.plates}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="plateType">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Plate Type </th>
-      <td mat-cell *matCellDef="let product"> {{product.plateType}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="unitPrice">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Unit Price </th>
-      <td mat-cell *matCellDef="let product"> {{product.unitPrice}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="status">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
-      <td mat-cell *matCellDef="let product"> 
-        <span *ngIf="product.workingStatus == 11; else statusBlock"> Completed</span>
-        <ng-template #statusBlock>
-          <span>Running</span>
-        </ng-template>
-      </td>
-    </ng-container>
-
-    <ng-container matColumnDef="printMode">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Print Mode </th>
-      <td mat-cell *matCellDef="let product"> {{product.printMode}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="description">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
-      <td mat-cell *matCellDef="let product"> {{product.description}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="deliveryDate">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Delivery Date </th>
-      <td mat-cell *matCellDef="let product"> {{product.expectedDeliveryDate.split('T')[0]}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="actions">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
-      <td mat-cell *matCellDef="let product"> 
-  
-        <button mat-flat-button style="background: #ec4d45" (click)="removeProduct(product.jobId, product.paperType, product.plates)">Delete</button>
-      </td>
-    </ng-container> -->
-
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
   <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons style="float:left"></mat-paginator>
-
 </mat-card>
+
+<ng-template #errorBlock>
+  <mat-card style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%)">
+    <h3 style="text-align: center">You don't have access to this page</h3>
+  </mat-card>
+</ng-template>

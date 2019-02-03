@@ -36,12 +36,10 @@ export class AppBlankComponent implements OnInit {
   }
 
   ngOnInit() {
-    // console.log(this.selected);
     this.PS.getFabricationDetails().subscribe(result => {
       if(!result) {
         return;
       }
-      // this.totalJobs = result.length;
     
       this.dataSource = new MatTableDataSource(<any> result);
       this.dataSource.sort = this.sort;
@@ -60,7 +58,6 @@ export class AppBlankComponent implements OnInit {
         start: data.start._d,
         end: data.end._d
       }
-      console.log(data.start._d, data.end._d);
       this.PS.getProductByDate(dateRange)
       .subscribe((result:any) => {
         // result.filter()
