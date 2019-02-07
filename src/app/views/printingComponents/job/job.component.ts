@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, MinLengthValidator } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, MinLengthValidator, FormArray } from '@angular/forms';
 import { RouterModule, Router }  from '@angular/router';
 import { PrintingService } from '../../../printing.service';
 
@@ -20,6 +20,7 @@ export class JobComponent implements OnInit {
   selectedProduct;
   paperTypes = ["Maplitho", "Hard Paper", "Art Card", "Albaster","Special paper"];
   specialPaper:Boolean = false;
+  papers: FormArray;
 
   constructor(private fb: FormBuilder, private PS: PrintingService, private router: Router) { }
   minDate = new Date();
@@ -39,6 +40,7 @@ export class JobComponent implements OnInit {
       plateType:["", Validators.required],
       specialPaper:[""],
       printMode: ['', Validators.required],
+      papers: this.fb.array([this.createPapers()])
     });
   }
 
@@ -56,6 +58,34 @@ export class JobComponent implements OnInit {
     this.specialPaper = !this.specialPaper;
     else this.specialPaper = false;
   }
+
+  createPapers(): FormGroup {
+    return this.fb.group({
+      paperType2: ['', Validators.required],
+      paperSize2: ['', Validators.required],
+      paperGsm2: ['', Validators.required],
+      paperCount2:['', Validators.required]
+    });
+  }
+
+  addPapers(): void {
+    this.papers = this.myForm.get('papers') as FormArray;
+    this.papers.push(this.createPapers());
+  }
+
+  removePaper(index:number) {
+    const control = <FormArray>this.myForm.controls['papers'];
+    control.removeAt(index);
+  }
+
+  // createPapers() {
+  //   const papers = this.myForm.get('papers') as FormArray;
+  //   papers.push(this.fb.group({
+  //     paperType2:["", Validators.required],
+  //     paperSize2:["", Validators.required],
+  //     paperGsm2:["", Validators.required],
+  //   }))
+  // }
 
   
 }

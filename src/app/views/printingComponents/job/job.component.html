@@ -40,10 +40,10 @@
             <mat-option *ngFor="let paperSize of paperSizes" [value]="paperSize">{{paperSize}}</mat-option>
             </mat-select>
             <mat-error *ngIf="myForm.controls.paperSize.invalid && (myForm.controls.paperSize.dirty || myForm.controls.paperSize.touched)">
-            <mat-error *ngIf="myForm.controls.paperSize.errors.required">
-                Please select paper type.
+                <mat-error *ngIf="myForm.controls.paperSize.errors.required">
+                    Please select paper type.
+                </mat-error>
             </mat-error>
-        </mat-error>
         </mat-form-field>
         <mat-form-field fxFlex="50%">
             <mat-label>GSM</mat-label>
@@ -182,7 +182,68 @@
         </mat-form-field>
     </div>
     <br>
-    
+    <div fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="left"
+    fxLayoutGap="5%"
+    fxLayoutGap.xs="0"
+    style="border: 1px solid rgb(180, 175, 175); padding: 5px;">
+    <div fxFlex="100%"  style="padding: 15px;">
+        <!-- <button mat-flat-button type="button"  style="position:relative;left:5%;">Add Papers</button> -->
+        <div>
+            <span fxFlex="10%" style="font-size:1rem; font-weight: bold;">Add Papers</span>
+            <!-- <span fxFlex="10%"></span> -->
+            <mat-icon (click)="addPapers()" style="cursor:pointer;font-size: 1.5rem;color: rgb(64, 79, 216)">add_circle</mat-icon>
+        </div>
+        
+        <div formArrayName="papers" 
+        *ngFor="let paper of myForm.get('papers').controls; let i = index;">    
+            <div [formGroupName]="i">
+                <mat-form-field fxFlex="20%" style="margin-right:3%">
+                    <mat-label>Paper Type</mat-label>
+                    <mat-select formControlName="paperType2" placeholder="Paper Type" (selectionChange)="selectChangeHandler($event)">
+                        <mat-option *ngFor="let paperType of paperTypes" [value]="paperType">{{paperType}}</mat-option>
+                    </mat-select>
+                    <!-- <input matInput formControlName="paperType2" placeholder="Paper"> -->
+                </mat-form-field>
+                <mat-form-field fxFlex="20%" style="margin-right:3%">
+                    <mat-label>Size</mat-label>
+                    <mat-select formControlName="paperSize2" placeholder="Paper Size">
+                    <mat-option *ngFor="let paperSize of paperSizes" [value]="paperSize">{{paperSize}}</mat-option>
+                    </mat-select>
+                    <!-- <mat-error *ngIf="myForm.get('papers')[i].paperSize2.invalid && (myForm.get('papers')[i].paperSize2.dirty || myForm.get('papers')[i].paperSize2.touched)">
+                        <mat-error *ngIf="myForm.get('papers')[i].paperSize2.errors.required">
+                            Please select paper size.
+                        </mat-error>
+                    </mat-error> -->
+                    <!-- <input matInput formControlName="paperSize2" placeholder="Size">   -->
+                </mat-form-field>
+                <mat-form-field fxFlex="20%" style="margin-right:3%">
+                    <mat-label>GSM</mat-label>
+                    <mat-select formControlName="paperGsm2" placeholder="GSM">
+                    <mat-option *ngFor="let gsm of gsms" [value]="gsm">{{gsm}}</mat-option>
+                    </mat-select>
+                    <!-- <mat-error *ngIf="myForm.controls.paperGsm2.invalid && (myForm.controls.paperGsm2.dirty || myForm.controls.paperGsm2.touched)">
+                        <mat-error *ngIf="myForm.controls.paperGsm2.errors.required">
+                            Please select paper GSM.
+                        </mat-error>
+                    </mat-error> -->
+                    <!-- <input matInput formControlName="paperGsm2" placeholder="GSM">     -->
+                </mat-form-field>
+                <mat-form-field fxFlex="20%" style="margin-right:3%">
+                    <mat-label>Papers</mat-label>
+                    <input matInput formControlName="paperCount2" placeholder="Papers">    
+                </mat-form-field>
+                <div fxFlex="5%" *ngIf="i !== 0 ">
+                    <mat-icon (click)="removePaper(i)" style="cursor:pointer;font-size: 2.3rem;color: rgb(212, 75, 75)">cancel</mat-icon>
+                </div>
+            </div>         
+        </div>
+    </div>
+        
+    </div>
+    <br>
+
     <button mat-flat-button color="primary" [disabled]="myForm.invalid" type="submit">Submit</button>
     
     <!-- <button mat-flat-button color="primary" [disabled]="myForm.invalid" type="submit">Next</button> -->
